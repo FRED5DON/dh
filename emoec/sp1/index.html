@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>带音乐手机滑动页面模板</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/swiper.animate.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+<div class="swiper-container" id="swiper-container">
+    <img src="images/arrow.png" id="array" class="resize">
+
+    <div class="swiper-wrapper">
+        <section class="swiper-slide">
+
+            <img   src="images/004.jpg" class="swiper-lazy Img2" alt="">
+            <div  class="ani resize font16"
+                  style="width:1em;position:absolute;left:64em;bottom:8em;z-index:2;"
+                  swiper-animate-effect="fadeInUp"
+                  swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+                三生石上注良缘，
+
+            </div>
+            <div  class="ani resize font16"
+                  style="width:1em;position:absolute;left:56em;bottom:8em;z-index:2;"
+                  swiper-animate-effect="fadeInUp"
+                  swiper-animate-duration="1.5s" swiper-animate-delay="2.5s">
+                恩爱夫妻彩线牵，
+
+            </div>
+            <div  class="ani resize font16"
+                  style="width:1em;position:absolute;left:48em;bottom:8em;z-index:2;"
+                  swiper-animate-effect="fadeInUp"
+                  swiper-animate-duration="1.5s" swiper-animate-delay="4.5s">
+                春色无边花富贵，
+
+            </div>
+            <div  class="ani resize font16"
+                  style="width:1em;position:absolute;left:40em;bottom:8em;z-index:2;"
+                  swiper-animate-effect="fadeInUp"
+                  swiper-animate-duration="1.5s" swiper-animate-delay="6.5s">
+                郎情妾意俩缠绵。
+
+            </div>
+
+            <!--  <div class="swiper-lazy-preloader"></div> -->
+        </section>
+        <section class="swiper-slide">
+            <img src="images/002.jpg" class="swiper-lazy Img2" alt="">
+
+            <!--  <div class="swiper-lazy-preloader"></div> -->
+        </section>
+        <section class="swiper-slide">
+            <img src="images/005.jpg" class="swiper-lazy Img2" alt="">
+
+            <!--  <div class="swiper-lazy-preloader"></div> -->
+        </section>
+        <section class="swiper-slide" style="background: url(images/007.jpg);">
+            <div class="formSignUp ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.4s" >
+                <h2>赶快报名吧！！</h2>
+               <br/>
+               <br/>
+               <br/>
+                <a>姓名</a>
+                <input type='text'  id="f_name" />
+                <a> 手机号</a>
+                <input type='text' id="f_phone"  pattern="[0-9]"/>
+                <input type="button" value="报名" />
+
+            </div>
+
+        </section>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="music">
+        <i class="icon-music open" num="1"></i>
+        <i class="music-span"></i>
+        <audio id="aud" src="images/music.mp3" loop="loop" autoplay></audio>
+        <div class="music_text">开启</div>
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        var scaleW = window.innerWidth / 320;
+        var scaleH = window.innerHeight / 480;
+        var resizes = document.querySelectorAll('.resize');
+        for (var j = 0; j < resizes.length; j++) {
+            resizes[j].style.width = parseInt(resizes[j].style.width) * scaleW + 'px';
+            resizes[j].style.height = parseInt(resizes[j].style.height) * scaleH + 'px';
+            resizes[j].style.top = parseInt(resizes[j].style.top) * scaleH + 'px';
+            resizes[j].style.left = parseInt(resizes[j].style.left) * scaleW + 'px';
+        }
+
+        $(".music").click(function () {
+            if ($(".icon-music").attr("num") == "1") {
+                $(".icon-music").css({
+                    backgroundImage: "url(images/musicoff.png)"
+                });
+                $(".icon-music").removeClass("open");
+                $(".icon-music").attr("num", "2");
+                $(".music-span").css("display", "none");
+                document.getElementById("aud").pause();
+                //$(".music_text").html("关闭");
+                //$(".music_text").addClass("show_hide");
+//            setTimeout(musicHide,2000);
+            } else {
+                $(".icon-music").css({
+                    backgroundImage: "url(images/musicon.png)"
+                });
+                $(".icon-music").attr("num", "1");
+                $(".icon-music").addClass("open");
+                $(".music-span").css("display", "block");
+
+                document.getElementById("aud").play();
+                //$(".music_text").html("开启");
+                //$(".music_text").addClass("show_hide");
+//            setTimeout(musicHide,2000);
+            }
+
+//        function musicHide(){
+//            $(".music_text").removeClass("show_hide");
+//        }
+
+        });
+        var mySwiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination', direction: 'vertical',
+            loop:true,
+//            lazyLoading: true,
+//            lazyLoadingInPrevNext: true,
+//            lazyLoadingOnTransitionStart: true,
+//            effect: 'fade',//cube,slide,fade,coverflow
+//            freeMode: false,
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeEnd: function (swiper) {
+                swiperAnimate(swiper);
+            },
+            onTransitionEnd: function (swiper) {
+                swiperAnimate(swiper);
+            },
+            watchSlidesProgress: true,
+            onProgress: function (swiper) {
+                for (var i = 0; i < swiper.slides.length; i++) {
+                    var slide = swiper.slides[i];
+                    var progress = slide.progress;
+                    var translate = progress * swiper.height / 4;
+                    var scale = 1 - Math.min(Math.abs(progress * 0.5), 1);
+                    var opacity = 1 - Math.min(Math.abs(progress / 2), 0.5);
+                    slide.style.opacity = opacity;
+                    var es = slide.style;
+                    es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,' + translate + 'px,-' + translate + 'px) scaleY(' + scale + ')';
+
+                }
+            },
+            onSetTransition: function (swiper, speed) {
+                for (var i = 0; i < swiper.slides.length; i++) {
+                    var es = swiper.slides[i].style;
+                    es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
+
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
