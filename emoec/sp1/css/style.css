@@ -54,7 +54,7 @@ img#array {
     }
     100% {
         opacity: 0;
-        -webkit-animation: translate(0, -8px)
+        -webkit-animation: translate(0, -8px);
     }
 }
 
@@ -69,7 +69,7 @@ img {
     right: 15px;
     top: 20px;
     z-index: 1000;
-    width: 50px;
+    width: 36px;
 }
 
 .open {
@@ -78,8 +78,8 @@ img {
 }
 
 .icon-music {
-    width: 36px;
-    height: 36px;
+    width: 26px;
+    height: 26px;
     background: url(../images/musicon.png) no-repeat;
     background-size: 100% 100%;
     display: block;
@@ -184,26 +184,25 @@ img {
     opacity: 0;
 }
 
-.font16 {
+.font12 {
     color: white;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 12px;
 }
 
 .formSignUp {
     width: 90%;
-    margin: 20% auto 0;
-    font-size: 26px;
+    overflow-y: auto;
+    margin: 20px auto 0;
+    font-size: 20px;
     color: black;
 }
 
 .formSignUp input{
     width: 98%;
     border-radius: 3px;
-    border: 1px solid #AAA;
     margin: 10px 0;
-    line-height: 2.6em;
-    font-size: 26px;
+    line-height: 1.6em;
 }
 .formSignUp input[type='text'] {
 }
@@ -211,6 +210,8 @@ img {
 .formSignUp input[type='button'] {
     background-color: #ff4200;
     margin-top: 1em;
+    padding-top: 3px;
+    padding-bottom: 3px;
     border-width: 0;
     border-radius: 4px;
     color: #FFF;
