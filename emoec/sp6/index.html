@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>带音乐手机滑动页面模板</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="../common/lib/jquery-1.11.0.min.js"></script>
+    <script src="../common/lib/jquery.cookie.js"></script>
+    <script src="../common/lib/require.js" data-main="js/index" type="text/javascript" charset="utf-8"></script>
+    <style>
+        * {
+            font-family: 'Microsoft YaHei';
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #thk-list {
+            overflow-y: auto;
+            height:auto;
+            margin-bottom: 56px;
+            position: relative;
+            bottom: 0px;
+        }
+
+        body {
+            background: url(images/bg.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        .toolBar {
+            width: 100%;
+            position: fixed;
+            bottom: 0px;
+            text-align: center;
+            background-color: #ffdcee;
+        }
+
+        .toolBar input[type='button'] {
+            width: 98%;
+            background-color: #f394cf;
+            line-height: 26px;
+            border: 0;
+            border-radius: 5px;
+            padding: 6px 2px;
+            margin: 6px auto;
+            color: white;
+        }
+
+        .toolBar input[type='button']:active {
+            border-width: 0;
+            background-color: #db81b7;
+        }
+
+        ul.thk-list-ul{
+            margin: 10px 5px 10px 5px;
+            border-radius: 5px;
+            background-color: rgba(255, 209, 222, 0.5);
+        }
+
+        ul.thk-list-ul li {
+            border: 1px solid #FFD1DE;
+
+        }
+
+        ul.thk-list-ul li:first-child {
+            border: 1px solid #FFD1DE;
+            border-radius: 5px 5px 0 0;
+        }
+
+        ul.thk-list-ul li:last-child {
+            border: 1px solid #FFD1DE;
+            border-top-width: 0px;
+            border-radius: 0 0 5px 5px;
+        }
+
+        ul.item-ul {
+            width: 100%;
+        }
+
+        ul.item-ul li {
+            display: inline-block;
+            color: #e1539b;
+            border-width: 0px !important;
+            line-height: 100%;
+        }
+
+        ul.item-ul li:nth-child(1) {
+            width: 60px;
+            padding: 6px;
+        }
+
+        ul.item-ul li.time {
+            padding: 6px;
+            color: #ba7271;
+            float: right;
+            font-size: 12px;
+        }
+
+        /*modal*/
+
+        .modal {
+            position: fixed;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            vertical-align: middle;
+            z-index: 1000;
+        }
+        .hide{
+            display: none;
+        }
+        .modal div.join-panel {
+            width: 100%;
+
+        }
+        .modal div.join-panel ul{
+            position: relative;
+            width:88%;
+            margin: 30% auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: rgba(255, 209, 222, 0.9);
+        }
+        .modal div.join-panel ul li label{
+            width: 60px;
+            margin: auto 6px;
+        }
+        .modal div.join-panel ul li input,
+        .modal div.join-panel ul li .mutiline
+        {
+            line-height: 26px;
+            border: 0;
+            width: 60%;
+            border-radius: 5px;
+            padding: 3px 2px;
+            margin: 6px auto;
+            color:black;
+        }
+        .modal div.join-panel ul li:last-child label{
+        }
+        .modal div.join-panel ul li .mutiline{
+            display: inline-block;
+            height:5em;
+            border: 1px solid  rgb(255, 255, 255);
+            text-align: start;
+            font-size: 14px;
+        }
+        .modal div.join-panel input[type='button']
+        {
+            clear: left;
+            margin-left:20px;
+            background-color: #f394cf;
+            color: white;
+        }
+        .modal div.join-panel input[type='button']:active{
+            background-color: #db81b7;
+        }
+        span.close{
+            position: absolute;
+            height:20px;
+            width: 20px;
+            background-color: #ba51b7;
+            right: 0px;
+            top: 0px;
+            padding: 6px 6px 12px 12px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 30px;
+            cursor: pointer;
+        }
+        span.close:active,span.close:hover{
+            background-color: #b7a2ba;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="swiper-container swiper-container-h banner">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/1.jpg" alt=""/></div>
+        <div class="swiper-slide"><img src="images/2.jpg" alt=""/></div>
+        <div class="swiper-slide"><img src="images/3.jpg" alt=""/></div>
+    </div>
+    <div class="swiper-pagination swiper-pagination-h"></div>
+</div>
+<div id="thk-list">
+</div>
+<div class="toolBar">
+    <input id="signUp" type="button" value="我要报名"/>
+</div>
+
+<div class="modal hide">
+    <div class="join-panel">
+        <ul>
+            <li>
+                <label>姓名</label><input name="name" type="text" placeholder="请输入姓名"/>
+            </li>
+            <li>
+                <label>电话</label><input name="phone"  type="text" placeholder="请输入电话"/>
+            </li>
+            <li>
+                <label>留言</label><div name="text"   class="mutiline" contenteditable="true" placeholder="这里输入留言"></div>
+            </li>
+            <li>
+                <label></label><input type="button" id="signUpBtn" value="报名"/>
+            </li>
+            <span class="close">X</span>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
