@@ -78,25 +78,25 @@ jQuery(function ($) {
             thumbnail_navigation: 0,			// Thumbnail navigation
             slides: [			// Slideshow Images
                 {
-                    image: '_include/img/slider-images/image01.jpg',
+                    image: 'include/img/slider-images/image01.jpg',
                     title: '<div class="slide-content">Brushed</div>',
                     thumb: '',
                     url: ''
                 },
                 {
-                    image: '_include/img/slider-images/image02.jpg',
+                    image: 'include/img/slider-images/image02.jpg',
                     title: '<div class="slide-content">Brushed</div>',
                     thumb: '',
                     url: ''
                 },
                 {
-                    image: '_include/img/slider-images/image03.jpg',
+                    image: 'include/img/slider-images/image03.jpg',
                     title: '<div class="slide-content">Brushed</div>',
                     thumb: '',
                     url: ''
                 },
                 {
-                    image: '_include/img/slider-images/image04.jpg',
+                    image: 'include/img/slider-images/image04.jpg',
                     title: '<div class="slide-content">Brushed</div>',
                     thumb: '',
                     url: ''
@@ -216,7 +216,7 @@ jQuery(function ($) {
 
             $.ajax({
                 type: "POST",
-                url: "_include/php/contact.php",
+                url: "include/php/contact.php",
                 data: fields,
                 dataType: 'json',
                 success: function (response) {
@@ -426,7 +426,7 @@ jQuery(function ($) {
         Modernizr.load([
             {
                 test: Modernizr.placeholder,
-                nope: '_include/js/placeholder.js',
+                nope: 'include/js/placeholder.js',
                 complete: function () {
                     if (!Modernizr.placeholder) {
                         /*Placeholders.init({
