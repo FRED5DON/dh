@@ -15,14 +15,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <title>SAGOSOFT | 西米软件</title>
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="bookmark" href="/favicon.ico" type="image/x-icon"/>
     <meta name="description" content="Peronal Page of Freddon"/>
     <!-- Mobile Specifics -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="true"/>
     <meta name="MobileOptimized" content="320"/>
-
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- Mobile Internet Explorer ClearType Technology -->
     <!--[if IEMobile]>
     <meta http-equiv="cleartype" content="on">  <![endif]-->
@@ -65,7 +66,13 @@
     <!-- Modernizr -->
     <script src="./include/js/modernizr.js"></script>
 
-
+    <style>
+        .chart {
+            height: 200px;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
 </head>
 
 
@@ -78,7 +85,6 @@
     </section>
 </div>
 <!-- End of Splash Screen -->
-
 
 <!-- Header -->
 <header>
@@ -109,13 +115,14 @@
         <div class="span11 row usefullink">
             <div class="hor">
                 <div class="title-page">
-                    <img src="./include/img/my/hd.jpg" style="border-radius: 60px;" />
+                    <img src="./include/img/my/hd.jpg" style="border-radius: 60px;"/>
+
                     <div style="padding-top: 1em">
-                        <a   href="#" target="_blank">应用</a>
+                        <a target="_blank">应用</a>
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                             <a href="http://my.oschina.net/freddon" target="_blank">博客</a>
+                        <a href="http://my.oschina.net/freddon" target="_blank">博客</a>
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                             <a href="#" target="_blank">文集</a>
+                        <a  target="_blank">文集</a>
                         <hr/>
                     </div>
                     <h2 class="title">Inspiration & Smell Life </h2>
@@ -153,8 +160,8 @@
         <div class="row">
             <div class="span12">
                 <div class="title-page">
-                    <h2 class="title">Everthing At Once！</h2>
-
+                    <h2 class="title">More-Skills is Equal No-Skill?</h2>
+                    <p class="title-description"> ------ FRED、DON's Q&A</p>
                     <p class="title-description">
                         <a>F</a>or i desire,
                         <a>R</a>eally wanna do,
@@ -166,452 +173,552 @@
                         <a>N</a>othing can ruin me!
 
                     </p>
+                    <br/>
+                    <div class="chart" id="barChart"></div>
                 </div>
+
             </div>
         </div>
         <!-- End Title Page -->
 
-        <!-- Portfolio Projects -->
-        <div class="row">
-            <div class="span3">
-                <!-- Filter -->
-                <nav id="options" class="work-nav">
-                    <ul id="filters" class="option-set" data-option-key="filter">
-                        <li class="type-work">钛合金技能占比</li>
-                        <li><a href="#filter" data-option-value=".mobile">移动端</a></li>
-                        <li><a href="#filter" data-option-value=".web" class="selected">WEB端</a></li>
-                        <li><a href="#filter" data-option-value=".server">服务器</a></li>
-                        <li><a href="#filter" data-option-value=".others">其他涉猎</a></li>
+
+
+            <!-- Portfolio Projects -->
+            <!-- <div class="row">
+
+                 <div class="span3">
+                     &lt;!&ndash; Filter &ndash;&gt;
+
+                     <nav id="options" class="work-nav">
+                         <ul id="filters" class="option-set" data-option-key="filter">
+                             <li class="type-work">钛合金技能占比</li>
+                             <li><a href="#filter" data-option-value=".mobile">移动端</a></li>
+                             <li><a href="#filter" data-option-value=".web" class="selected">WEB端</a></li>
+                             <li><a href="#filter" data-option-value=".server">服务器</a></li>
+                             <li><a href="#filter" data-option-value=".others">其他涉猎</a></li>
+                         </ul>
+                     </nav>
+                     &lt;!&ndash; End Filter &ndash;&gt;
+                 </div>
+
+                &lt;!&ndash; <div class="span9">
+                     <div class="row">
+                         <section id="projects">
+                             <ul id="thumbs">
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 mobile">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="75" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             IOS
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 mobile">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="60" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             Windows Phone
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 mobile">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="87" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             Android
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 web">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="85" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             HTML5
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 web">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="80" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             JAVASCRIPT
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 web">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="79" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             CSS
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 web">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="55" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             PHP
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 web">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="72" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             JSP
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 server">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="75" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             JAVA
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 server">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="60" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             PHP
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 server">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="58" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             Nodejs
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 server">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="67" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             Mysql
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 others">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="61" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             PS/AI
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+                                 &lt;!&ndash; Item Project and Filter Name &ndash;&gt;
+                                 <li class="item-thumbs span3 others">
+                                     &lt;!&ndash; Fancybox - Gallery Enabled - Title - Full Image &ndash;&gt;
+                                     <a class="default-wrap fancybox" data-percent="80" data-fancybox-group="gallery"
+                                         href="./include/img/work/full/image-01-full.jpg">
+                                         <span class="overlay-img"></span>
+
+                                         <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
+                                             瞎折腾
+                                         </div>
+                                     </a>
+                                     &lt;!&ndash; Thumb Image and Description &ndash;&gt;
+                                     <img src="./include/img/work/thumbs/image-01.jpg">
+                                 </li>
+                                 &lt;!&ndash; End Item Project &ndash;&gt;
+                             </ul>
+                         </section>
+
+                     </div>
+                 </div>
+            &ndash;&gt; </div>-->
+            <!-- End Portfolio Projects -->
+        </div>
+    </div>
+    <!-- End Our Work Section -->
+
+    <!-- About Section -->
+    <div id="about" class="page-alternate">
+        <div class="container">
+            <!-- Title Page -->
+            <div class="row">
+                <div class="span12">
+                    <div class="title-page">
+                        <h2 class="title">泪点</h2>
+
+                        <h3 class="title-description">Don't Cry,Stand and LOL!</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- End Title Page -->
+
+            <!-- People -->
+            <div class="row">
+
+                <!-- Start Profile -->
+                <div class="span4 profile">
+                    <div class="image-wrap">
+                        <div class="hover-wrap">
+                            <span class="overlay-img"></span>
+                            <span class="overlay-text-thumb">おたく</span>
+                        </div>
+                        <img src="./include/img/my/cd.png"/>
+                    </div>
+                    <h3 class="profile-name">死宅码农</h3>
+
+                    <p class="profile-description">
+                        おたく(Otaku)，但是，这是由于喜欢CODING&SURFING的缘故，最喜欢的编程语言有C/CPP、C#、JAVASCRIPT、PYTHON。
+                        喜欢开发移动应用，python for S60、Objective-C、C#、Java、Javascript是我接触最多的语言。
+                    </p>
+
+
+                </div>
+                <!-- End Profile -->
+
+                <!-- Start Profile -->
+                <div class="span4 profile">
+                    <div class="image-wrap">
+                        <div class="hover-wrap">
+                            <span class="overlay-img"></span>
+                            <span class="overlay-text-thumb">LoveLive</span>
+                        </div>
+                        <img src="./include/img/my/hw.jpg"/>
+                    </div>
+                    <h3 class="profile-name">伪二次元</h3>
+
+                    <p class="profile-description">
+                        不能被强烈鲜明的‘正’能量所感染，但能被一点点的事触动心灵，典型的暗黑系水瓶座，大多数时候【天地不仁以万物为刍狗】。
+                        喜欢萌系，也很喜欢重金属。
+                    </p>
+
+
+                </div>
+                <!-- End Profile -->
+
+                <!-- Start Profile -->
+                <div class="span4 profile">
+                    <div class="image-wrap">
+                        <div class="hover-wrap">
+                            <span class="overlay-img"></span>
+                            <span class="overlay-text-thumb">傻狍子</span>
+                        </div>
+                        <img src="./include/img/my/spz.jpg"/>
+                    </div>
+                    <h3 class="profile-name">独特</h3>
+
+                    <p class="profile-description">
+                        人生轨迹对于我来说，喜欢才是最好的。和睦相处，尊重他人的选择，不干扰、不诋毁。在利益方面不敏感，常被人“傻”。当碰触底线，会给对方抛出STACKOVERFLOW EXCEPTION。
+                    </p>
+
+
+                </div>
+                <!-- End Profile -->
+
+            </div>
+            <!-- End People -->
+        </div>
+    </div>
+    <!-- End About Section -->
+
+
+    <!-- Contact Section -->
+    <div id="contact" class="page">
+        <div class="container">
+            <!-- Title Page -->
+            <div class="row">
+                <div class="span12">
+                    <div class="title-page">
+                        <h2 class="title">Friends are Good!But beggar、advertiser away!</h2>
+
+                        <div class="span11 hor menuicon">
+                            <ul>
+
+                                <li>  <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=419102565&site=qq&menu=yes">
+                                    <img width="54"src="./include/img/my/qq.jpg" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+                                </li>
+                                <li><a href="http://user.qzone.qq.com/419102565" target="_blank">
+                                    <img width="54"
+                                         src="http://qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-iphone-retina.png"/></a>
+                                </li>
+                                <li><a href="http://my.oschina.net/freddon" target="_blank"><img
+                                        src="./include/img/my/oschina.png"/></a></li>
+                                <li><a href="https://github.com/FRED5DON" target="_blank"><img
+                                        src="./include/img/my/github.png"/></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Title Page -->
+        </div>
+    </div>
+    <!-- End Contact Section -->
+
+
+    <!-- Socialize -->
+    <div id="social-area" class="page-alternate">
+        <div class="container">
+            <div class="row usefullink">
+                <h3>推荐链接</h3>
+
+                <div class="span12 hor">
+                    <ul>
+                        <li><a class="button" href="http://www.yczmm.com/" target="_blank">大风博客</a></li>
+                        <li><a class="button" href="http://www.itbaohe.com/" target="_blank">IT建站宝盒</a></li>
+                        <li><a class="button" href="http://bbs.pcbeta.com/" target="_blank">远景论坛</a></li>
+                        <li><a class="button" href=" http://bbs.dospy.com/" target="_blank">DOSPY论坛</a></li>
+                        <li><a class="button" href="http://www.microsoftvirtualacademy.com/" target="_blank">微软虚拟学院</a>
+                        </li>
                     </ul>
-                </nav>
-                <!-- End Filter -->
-            </div>
 
-
-            <div class="span9">
-                <div class="row">
-                    <section id="projects">
-                        <ul id="thumbs">
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 mobile">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="75" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        IOS
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 mobile">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="60" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        Windows Phone
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 mobile">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="87" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        Android
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 web">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="85" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        HTML5
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 web">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="80" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        JAVASCRIPT
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 web">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="79" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        CSS
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 web">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="55" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        PHP
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 web">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="72" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        JSP
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 server">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="75" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        JAVA
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 server">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="60" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        PHP
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 server">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="58" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        Nodejs
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 server">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="67" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        Mysql
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 others">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="61" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        PS/AI
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-                            <!-- Item Project and Filter Name -->
-                            <li class="item-thumbs span3 others">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="default-wrap fancybox" data-percent="80" data-fancybox-group="gallery"
-                                    href="./include/img/work/full/image-01-full.jpg">
-                                    <span class="overlay-img"></span>
-
-                                    <div style=" position: absolute;bottom: 10%;width: 100%;text-align: center;font-weight: bold;color: snow">
-                                        瞎折腾
-                                    </div>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="./include/img/work/thumbs/image-01.jpg">
-                            </li>
-                            <!-- End Item Project -->
-                        </ul>
-                    </section>
+                    <a href="http://www.pceggs.com/i.aspx?c=1-11916679" target="_blank">
+                        <img src=" http://www.pceggs.com/invite/InviteMaterialDown.aspx?file=sc250100.gif"/>
+                    </a>
 
                 </div>
-            </div>
-        </div>
-        <!-- End Portfolio Projects -->
-    </div>
-</div>
-<!-- End Our Work Section -->
-
-<!-- About Section -->
-<div id="about" class="page-alternate">
-    <div class="container">
-        <!-- Title Page -->
-        <div class="row">
-            <div class="span12">
-                <div class="title-page">
-                    <h2 class="title">泪点</h2>
-
-                    <h3 class="title-description">Don't Cry,Stand and LOL!</h3>
-                </div>
-            </div>
-        </div>
-        <!-- End Title Page -->
-
-        <!-- People -->
-        <div class="row">
-
-            <!-- Start Profile -->
-            <div class="span4 profile">
-                <div class="image-wrap">
-                    <div class="hover-wrap">
-                        <span class="overlay-img"></span>
-                        <span class="overlay-text-thumb">おたく</span>
-                    </div>
-                    <img src="./include/img/my/cd.png"/>
-                </div>
-                <h3 class="profile-name">死宅码农</h3>
-
-                <p class="profile-description">
-                    おたく(Otaku)，但是，这是由于喜欢CODING&SURFING的缘故，最喜欢的编程语言有C/CPP、C#、JAVASCRIPT、PYTHON。
-                    喜欢开发移动应用，python for S60、Objective-C、C#、Java、Javascript是我接触最多的语言。
-                </p>
-
-
-            </div>
-            <!-- End Profile -->
-
-            <!-- Start Profile -->
-            <div class="span4 profile">
-                <div class="image-wrap">
-                    <div class="hover-wrap">
-                        <span class="overlay-img"></span>
-                        <span class="overlay-text-thumb">LoveLive</span>
-                    </div>
-                    <img src="./include/img/my/hw.jpg"/>
-                </div>
-                <h3 class="profile-name">伪二次元</h3>
-
-                <p class="profile-description">
-                    不能被强烈鲜明的真能量所感染，但能被一点点的事触动心灵，典型的暗黑系水瓶座，有的时候可以爱屋及乌，有的时候【天地不仁以万物为刍狗】。
-                    喜欢萌系，也很喜欢重金属。
-                </p>
-
-
-            </div>
-            <!-- End Profile -->
-
-            <!-- Start Profile -->
-            <div class="span4 profile">
-                <div class="image-wrap">
-                    <div class="hover-wrap">
-                        <span class="overlay-img"></span>
-                        <span class="overlay-text-thumb">傻狍子</span>
-                    </div>
-                    <img src="./include/img/my/spz.jpg"/>
-                </div>
-                <h3 class="profile-name">独特</h3>
-
-                <p class="profile-description">
-                    人生轨迹对于我来说，喜欢才是最好的。和睦相处，尊重他人的选择，不干扰、不诋毁。在利益方面不敏感，常被人“傻”。当碰触底线，会给对方抛出STACKOVERFLOW EXCEPTION。
-                </p>
-
-
-            </div>
-            <!-- End Profile -->
-
-        </div>
-        <!-- End People -->
-    </div>
-</div>
-<!-- End About Section -->
-
-
-<!-- Contact Section -->
-<div id="contact" class="page">
-    <div class="container">
-        <!-- Title Page -->
-        <div class="row">
-            <div class="span12">
-                <div class="title-page">
-                    <h2 class="title">Friends are Good!But beggar、advertiser away!</h2>
-
-                    <div class="span11 hor menuicon">
-                        <ul>
-                            <li><a href="http://user.qzone.qq.com/419102565" target="_blank">
-                                <img width="54"
-                                     src="http://qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-iphone-retina.png"/></a>
-                            </li>
-                            <li><a href="http://my.oschina.net/freddon" target="_blank"><img
-                                    src="./include/img/my/oschina.png"/></a></li>
-                            <li><a href="https://github.com/FRED5DON" target="_blank"><img
-                                    src="./include/img/my/github.png"/></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Title Page -->
-    </div>
-</div>
-<!-- End Contact Section -->
-
-
-<!-- Socialize -->
-<div id="social-area" class="page-alternate">
-    <div class="container">
-        <div class="row usefullink">
-            <h3>推荐链接</h3>
-
-            <div class="span12 hor">
-                <ul>
-                    <li><a class="button" href="http://www.yczmm.com/" target="_blank">大风博客</a></li>
-                    <li><a class="button" href="http://www.itbaohe.com/" target="_blank">IT建站宝盒</a></li>
-                    <li><a class="button" href="http://bbs.pcbeta.com/" target="_blank">远景论坛</a></li>
-                    <li><a class="button" href=" http://bbs.dospy.com/" target="_blank">DOSPY论坛</a></li>
-                    <li><a class="button" href="http://www.microsoftvirtualacademy.com/" target="_blank">微软虚拟学院</a></li>
-                </ul>
-
-                <a  href="http://www.pceggs.com/i.aspx?c=1-11916679" target="_blank">
-                    <img src=" http://www.pceggs.com/invite/InviteMaterialDown.aspx?file=sc250100.gif" />
-                </a>
-
             </div>
         </div>
     </div>
-</div>
-<!-- End Socialize -->
+    <!-- End Socialize -->
 
-<!-- Footer -->
-<footer>
-    <p class="credits">&copy; Copyright &copy; 2013.Company name All rights reserved.<a target="_blank"
-                                                                                        href="http://www.sagosoft.com/"
-                                                                                        title="模板之家">SagoSoft</a></p>
-</footer>
-<!-- End Footer -->
+    <!-- Footer -->
+    <footer>
+        <p class="credits">&copy; Copyright &copy; 2013.Company name All rights reserved.<a target="_blank"
+                                                                                            href="http://www.sagosoft.com/"
+                                                                                            title="模板之家">SagoSoft</a>
+        </p>
+    </footer>
+    <!-- End Footer -->
 
-<!-- Back To Top -->
-<a id="back-to-top" href="#">
-    <i class="font-icon-arrow-simple-up"></i>
-</a>
-<!-- End Back to Top -->
+    <!-- Back To Top -->
+    <a id="back-to-top" href="#">
+        <i class="font-icon-arrow-simple-up"></i>
+    </a>
+    <!-- End Back to Top -->
 
 
-<!-- Js -->
-<script src="./include/js/jquery-1.11.3.min.js"></script>
-<!-- jQuery Core -->
-<script src="./include/js/bootstrap.min.js"></script>
-<!-- Bootstrap -->
-<script src="./include/js/supersized.3.2.7.min.js"></script>
-<!-- Slider -->
-<script src="./include/js/waypoints.js"></script>
-<!-- WayPoints -->
-<script src="./include/js/waypoints-sticky.js"></script>
-<!-- Waypoints for Header -->
-<script src="./include/js/jquery.isotope.js"></script>
-<!-- Isotope Filter -->
-<script src="./include/js/jquery.fancybox.pack.js"></script>
-<!-- Fancybox -->
-<script src="./include/js/jquery.fancybox-media.js"></script>
-<!-- Fancybox for Media -->
-<script src="./include/js/jquery.tweet.js"></script>
-<!-- Tweet -->
-<script src="./include/js/plugins.js"></script>
-<!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
+    <!-- Js -->
+    <script src="./include/js/jquery-1.11.3.min.js"></script>
+    <!-- jQuery Core -->
+    <script src="./include/js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./include/js/supersized.3.2.7.min.js"></script>
+    <!-- Slider -->
+    <script src="./include/js/waypoints.js"></script>
+    <!-- WayPoints -->
+    <script src="./include/js/waypoints-sticky.js"></script>
+    <!-- Waypoints for Header -->
+    <script src="./include/js/jquery.isotope.js"></script>
+    <!-- Isotope Filter -->
+   <!-- <script src="./include/js/jquery.fancybox.pack.js"></script>
+    &lt;!&ndash; Fancybox &ndash;&gt;
+    <script src="./include/js/jquery.fancybox-media.js"></script>-->
+    <!-- Fancybox for Media -->
+    <script src="./include/js/jquery.tweet.js"></script>
+    <!-- Tweet -->
+    <script src="./include/js/plugins.js"></script>
+    <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
+    <script src="./include/js/echarts-all.js"></script>
+    <script src="./include/js/main.js"></script>
+    <!-- Default JS -->
+    <!-- End Js -->
+    <script>
+        $(function () {
+            var th = $("#thumbs .item-thumbs a.default-wrap");
+            $.each(th, function (index, item) {
+                var num = item.getAttribute('data-percent');
+                item.querySelector("span.overlay-img").style.top = (100 - num) + '%';
+            });
 
-<script src="./include/js/main.js"></script>
-<!-- Default JS -->
-<!-- End Js -->
-<script>
-    $(function () {
-        var th = $("#thumbs .item-thumbs a.default-wrap");
-        $.each(th, function (index, item) {
-            var num = item.getAttribute('data-percent');
-            item.querySelector("span.overlay-img").style.top = (100 - num) + '%';
+            var getOption = function (chartType) {
+                var chartOption = {
+                    legend: {
+                        data: ['蕴含比', '兴趣比'],
+                        textStyle:{
+                            color:'#ffffff'
+                        }
+                    },
+                    grid: {
+                        x: 35,
+                        x2: 10,
+                        y: 30,
+                        y2: 25
+                    },
+                    tooltip : {         // Option config. Can be overwrited by series or data
+                        trigger: 'axis'
+                    },
+                    toolbox: {
+                        show: false,
+                        feature: {
+                            mark: {
+                                show: true
+                            },
+                            dataView: {
+                                show: true,
+                                readOnly: false
+                            },
+                            magicType: {
+                                show: true,
+                                type: ['line', 'bar']
+                            },
+                            restore: {
+                                show: true
+                            },
+                            saveAsImage: {
+                                show: true
+                            }
+                        }
+                    },
+                    calculable: false,
+                    xAxis: [{
+                        type: 'category',
+                        axisLabel:{
+                            interval:'0',
+                            textStyle:{
+                                rotate:'30',
+                                color:'#FF7B2C'
+                            }
+                        },
+                        data: ['python', 'html5', 'javascript', 'php', 'C#', 'windows phone', 'ios', 'android', 'javaweb', 'nodejs', 'mysql', 'ps/ai'],
+                        formatter: function (params,ticket,callback) {
+//                            return getEchartBarXAxisTitle
+                        }
+                    }],
+                    yAxis: [{
+                        type: 'value',
+                        axisLabel:{
+                            textStyle:{
+                                color:'#FF7B2C'
+                            }
+                        },
+                        splitArea: {
+                            show: true
+                        }
+                    }],
+                    series: [{
+                        name: '蕴含比',
+                        type: chartType,
+                        data: [35, 90, 87, 45, 65.8, 72, 75, 92, 77, 45, 69, 30]
+                    }, {
+                        name: '兴趣比',
+                        type: chartType,
+                        data: [20, 95, 97, 75, 68, 67, 87, 67, 51, 80, 73, 50]
+                    }]
+                };
+                return chartOption;
+
+
+            };
+
+            var barChart = echarts.init($('#barChart')[0]);
+            barChart.setOption(getOption('line'));
+            $("#echarts").bind('tap', function () {
+                var url = this.getAttribute('data-url');
+                plus.runtime.openURL(url);
+            }, false);
+
+
         });
-    });
-
-</script>
+    </script>
 
 </body>
 </html>

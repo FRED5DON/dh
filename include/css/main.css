@@ -26,7 +26,7 @@ html, hmtl a{
 }
 
 body{
-	background:#2F3238;
+	background:#5D5D5D;
 	color:#7F8289;
 	font-weight:300;
 	font-size:16px;
@@ -78,7 +78,7 @@ p {
 
 hr {
 	border-style: dashed;
-	border-color: #3C3F45;
+	border-color: #7E6684;
 	border-bottom: none;
 	border-left: none;
 	border-right: none;
@@ -304,7 +304,7 @@ h3.spec {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: #26292E;
+	background: transparent;
 	opacity: 0.7;
 	filter: alpha(opacity=70);
 	z-index: 0;
@@ -339,7 +339,7 @@ h3.spec {
 #home-slider .control-nav {
 	position: absolute;
 	width: 100%;
-	background: #2F3238;
+	background: #7E6684;
 	height: 50px;
 	bottom: 0;
 	z-index: 2;
@@ -348,7 +348,7 @@ h3.spec {
 #home-slider #nextslide,
 #home-slider #prevslide {
 	background-image: none;
-	background-color: #26292E;
+	background-color: transparent;
 	display: inline-block;
 	margin: 0;
 	position: relative;
@@ -438,7 +438,7 @@ h3.spec {
 }
 
 #home-slider #nextsection {
-	background-color: #26292E;
+	background-color: transparent;
 	margin: 0;
 	position: relative;
 	float:right;
@@ -483,7 +483,7 @@ header .sticky-nav {
 	position: relative;
 	width: 100%;
 	height: 60px;
-	background: #26292E;
+	background-color: #7E6684 !important;
 	z-index: 1001;
 
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -559,6 +559,9 @@ nav#menu #menu-nav li a:hover {
 	color: #ff7b2c;
 }
 
+#menu-nav-mobile li {
+	background-color: #333333;
+}
 
 /* ==================================================
    Mobile Navigation
@@ -606,8 +609,8 @@ nav#menu #menu-nav li a:hover {
 	display: none;
 	text-align: center;
 	width: 100%;
-	background: #26292E;
-	border-bottom: 1px solid #2F3238;
+	background: transparent;
+	border-bottom: 1px solid #7E6684;
 	position: relative;
 	float: left;
 	z-index: 9999;
@@ -615,7 +618,7 @@ nav#menu #menu-nav li a:hover {
 
 #navigation-mobile li {
 	list-style: none;
-	border-top: 1px solid #2F3238;
+	border-top: 1px solid #7E6684;
 }
 
 #navigation-mobile li a{
@@ -631,14 +634,14 @@ nav#menu #menu-nav li a:hover {
 ================================================== */
 
 .page {
-	background: #2F3238;
+	background: #7E6684;
 	padding: 100px 0;
 	position: relative;
 	z-index: 99;
 }
 
 .page-alternate {
-	background: #26292E;
+	background: transparent;
 	padding: 100px 0;
 	position: relative;
 	z-index: 99;
@@ -791,6 +794,7 @@ nav#menu #menu-nav li a:hover {
 }
 
 .profile-description {
+	text-indent: 2em;
 	margin-bottom: 25px;
 }
 
@@ -944,7 +948,7 @@ nav#menu #menu-nav li a:hover {
 	-moz-box-shadow: none;
 	box-shadow: none;
 
-	background: #26292E;
+	background: transparent;
     color: #FFFFFF;
     font-size: 16px;
     height: auto;
@@ -970,7 +974,7 @@ nav#menu #menu-nav li a:hover {
 }
 
 #contact-form .submit {
-    background: #3C3F45;
+    background: #7E6684;
     color: #23262C;
     cursor: pointer;
     display: inline-block;
@@ -1076,7 +1080,7 @@ nav#menu #menu-nav li a:hover {
 	width: 70px;
 	height: 70px;
 
-	background: #26292E;
+	background: transparent;
 
 	-webkit-transition: all 400ms ease-out 0s;
 	   -moz-transition: all 400ms ease-out 0s;
@@ -1172,13 +1176,12 @@ footer {
 	position: relative;
 	width: 100%;
 	height: auto;
-	background: #26292E;
+	background: transparent;
 	text-align: center;
 	z-index: 99;
 }
 
 footer .credits {
-	color: #FFFFFF;
 	font-size: 13px;
 	margin-bottom: 0;
 	padding: 20px 0;
@@ -1191,7 +1194,7 @@ footer .credits {
 
 #back-to-top {
 	display: none;
-	background-color: #3C3F45;
+	background-color: #7E6684;
 	margin: 0;
 	position: fixed;
 	bottom: 0;
@@ -1231,7 +1234,7 @@ footer .credits {
 
 #jpreOverlay,
 #jSplash {
-	background-color: #2F3238;
+	background-color: #7E6684;
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -1428,4 +1431,7 @@ footer .credits {
 }
 .usefullink ul li a.button:hover{
     background: #ff7b2c;
+}
+.button{
+	background-color: #7E6684 !important;
 }
