@@ -431,16 +431,12 @@
             _(".urlRecorder").style.color = '#DDDDDD';
         }
     }
-    _('.cookieUrl').addEventListener("click", function (e) {
-        e.stopPropagation();
-        if (e && e.preventDefault)
-            e.preventDefault();
-        else
-            window.event.returnValue = false;
-        return false;
-    });
+   
     _('.header').addEventListener("click", function (e) {
         /* _('.cookieUrl').className +="hidden";*/
+		if(e.target.nodeName =='INPUT'){
+		return true;
+		}
         _('.cookieUrl').className = _('.cookieUrl').className.replace(" hidden", "");
     });
     _('.hideBar').addEventListener("click", function (e) {
