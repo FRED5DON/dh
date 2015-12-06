@@ -20,7 +20,8 @@
     <link rel="stylesheet" type="text/css" href="styles/index.css"/>
 </head>
 <body>
-<div class="header"><h3><img src="./images/logo.png" height="34"/>FRED Links</h3>
+<div class="header"><h3><img src="./images/logo.png" height="27"/>FRED Links<span
+        style="font-size: 10px;padding:6px;color:#999999">点击此处添加Cookie快链</span></h3>
     <!--[if IEMobile]>
     <span>
     <iframe name="sinaWeatherTool"
@@ -35,7 +36,21 @@
         <input type="submit" value="百度搜索">
     </form>
 </div>
+
+<div class="cookieUrl hidden">
+    <div class="urlRecorder" contenteditable="true"></div>
+    <div class="urlRecord button">+</div>
+    <div class="hideBar">︽</div>
+</div>
+<div class="msg-view">
+    <div class="msg-view-content"></div>
+</div>
+
+<div class="hotUrl">
+</div>
 <div class="container">
+
+    <!-- content-->
     <div class="content-wrapper"><p class="content-title">IT技术</p>
 
         <div class="content">
@@ -209,12 +224,13 @@
                 </div>
             </div>
             <div class="boxer boxer-small">
-                <div class="boxer-description"><a href="http://www.sagosoft.com/" class="link-cell"
-                                                  target="_blank">西米主页<span class="link-tips">西米主页</span></a>
-                </div>
+                <div class="boxer-description"><a href="https://www.sagosoft.com/" class="link-cell" target="_blank">西米主页<span
+                        class="link-tips">Fred 主页</span></a></div>
             </div>
         </div>
     </div>
+
+    <!-- content end-->
 </div>
 
 <!-- 多说评论框 start -->
@@ -281,7 +297,161 @@
         }
     }
 </script>
-<script src="js/data.js"></script>
 <script src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
+<script src="js/msgview.js"></script>
 <script src="js/geo.js"></script>
+<script>
+    function _(label) {
+        var query = document.querySelectorAll(label);
+        if (query && query.length == 1) {
+            return query[0];
+        }
+        return query;
+    }
+    window.IsURL = function (str_url) {
+        var strRegex = '^((https|http|ftp|rtsp|mms)?://)' + '?(([0-9a-z_!~*\'().&=+win%-]+: )?[0-9a-z_!~*\'().&=+win%-]+@)?' //ftp的user@
+                + '(([0-9]{1,3}.){3}[0-9]{1,3}' // IP形式的URL- 199.194.52.184
+                + '|' // 允许IP和DOMAIN（域名）
+                + '([0-9a-z_!~*\'()-]+.)*' // 域名- www.
+                + '([0-9a-z][0-9a-z-]{0,61})?[0-9a-z].' // 二级域名
+                + '[a-z]{2,6})' // first level domain- .com or .museum
+                + '(:[0-9]{1,4})?' // 端口- :80
+                + '((/?)|' // a slash isn't required if there is no file name
+                + '(/[0-9a-zA-Z_!~*\'().;?:@&=+win,%#-]+)+/?)$';
+        var re = new RegExp(strRegex);
+        //re.test()
+        if (re.test(str_url)) {
+            return (true);
+        } else {
+            return (false);
+        }
+    };
+
+    var msgView = new UIMsgVew();
+
+    function deleteCookieLink(link) {
+        if (!link) {
+            return;
+        }
+        var hotlinks = localStorage.getItem('HotLinks');
+        var links = null;
+        if (hotlinks) {
+            links = JSON.parse(hotlinks);
+        }
+        if (!links) {
+            msgView.show("Cookie丢失，操作失败");
+            return;
+        }
+        for (var i = 0; i < links.length; i++) {
+            if (links[i] == link) {
+                links.splice(i, 1);
+                i--;
+                break;//暂时不删除同名的
+            }
+        }
+        if (links.length == 0) {
+            localStorage.clear();
+            msgView.show("本地热链已全部清空");
+            return;
+        }
+        localStorage.setItem('HotLinks', JSON.stringify(links));
+    }
+
+    function updateFavorLinks() {
+        var hotlinks = localStorage.getItem('HotLinks');
+        var links = null;
+        if (hotlinks) {
+            links = JSON.parse(hotlinks);
+        }
+        _(".hotUrl").innerHTML = "";
+        if (!links || links.length == 0) {
+            return;
+        }
+        var piece = [];
+        piece.push('<div class="content-wrapper">');
+        piece.push('<p class="content-title">本地Cookie热链<span style="font-size: 10px;padding:6px;color:#999999">最多50个</span></p>');
+        piece.push('<div class="content">');
+        var lks = [];
+        for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+            lks.push('<div class="boxer boxer-flexiable"> ');
+            lks.push('<a href="' + link + '" class="link-cell" target="_blank">' + link +
+                    '</a><span class="del-link" data-con="' + link + '" onclick="javascript:delClick(this);">X</span></div>');
+        }
+        piece.push(lks.join(''));
+        piece.push('</div>');
+        _(".hotUrl").innerHTML = piece.join('');
+
+    }
+    updateFavorLinks();
+
+    var FAV_COUNT =50;
+    _(".urlRecord.button").addEventListener('click', function () {
+
+        var queryLink = _(".urlRecorder").innerText;
+        if (!IsURL(queryLink)) {
+            msgView.show("请检查URL是否合法");
+            return;
+        }
+
+        _(".urlRecorder").innerText = "";
+
+        var hotlinks = localStorage.getItem('HotLinks');
+        var obj = [];
+        if (hotlinks) {
+            obj = JSON.parse(hotlinks);
+        }
+
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i] == queryLink) {
+                obj.splice(i, 1);
+                break;
+            }
+        }
+        obj[obj.length] = queryLink;
+        if (obj.length == FAV_COUNT) {
+            obj.splice(0, 1);
+        }
+        localStorage.setItem('HotLinks', JSON.stringify(obj));
+
+        updateFavorLinks();
+    });
+    var tips = "这里可输入需要添加到COOKIE的URL";
+    _(".urlRecorder").innerHTML = tips;
+    _(".urlRecorder").style.color = '#DDDDDD';
+    _(".urlRecorder").onfocus = function () {
+        if (this.innerHTML == tips) {
+            this.innerHTML = "";
+            _(".urlRecorder").style.color = '#000000';
+        }
+    }
+    _(".urlRecorder").onblur = function () {
+        if (this.innerHTML === "") {
+            this.innerHTML = tips;
+            _(".urlRecorder").style.color = '#DDDDDD';
+        }
+    }
+    _('.cookieUrl').addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (e && e.preventDefault)
+            e.preventDefault();
+        else
+            window.event.returnValue = false;
+        return false;
+    });
+    _('.header').addEventListener("click", function (e) {
+        /* _('.cookieUrl').className +="hidden";*/
+        _('.cookieUrl').className = _('.cookieUrl').className.replace(" hidden", "");
+    });
+    _('.hideBar').addEventListener("click", function (e) {
+        _('.cookieUrl').className += " hidden";
+    });
+
+    function delClick(o) {
+        var url = o.getAttribute("data-con");
+        deleteCookieLink(url);
+        updateFavorLinks();
+    }
+
+</script>
 </html>

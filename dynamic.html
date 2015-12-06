@@ -20,10 +20,13 @@
     <link rel="stylesheet" type="text/css" href="styles/index.css"/>
 </head>
 <body>
-<div class="header"><h3><img src="./images/logo.png" height="27" />FRED Links</h3>
+<div class="header"><h3><img src="./images/logo.png" height="27"/>FRED Links<span
+        style="font-size: 10px;padding:6px;color:#999999">点击此处添加Cookie快链</span></h3>
     <!--[if IEMobile]>
-<span>
-    <iframe name="sinaWeatherTool" src="http://weather.news.sina.com.cn/chajian/iframe/weatherStyle2.html?city=%e5%ae%89%e5%ba%b7" width="200" height="20" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+    <span>
+    <iframe name="sinaWeatherTool"
+            src="http://weather.news.sina.com.cn/chajian/iframe/weatherStyle2.html?city=%e5%ae%89%e5%ba%b7" width="200"
+            height="20" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
 </span>
     <![endif]-->
     <form class="baidu_search_box" onsubmit="return baiduWithHttps(this)" action="http://www.baidu.com/baidu"
@@ -33,15 +36,28 @@
         <input type="submit" value="百度搜索">
     </form>
 </div>
+
+<div class="cookieUrl hidden">
+    <div class="urlRecorder" contenteditable="true"></div>
+    <div class="urlRecord button">+</div>
+    <div class="hideBar">︽</div>
+</div>
+<div class="msg-view">
+    <div class="msg-view-content"></div>
+</div>
+
+<div class="hotUrl">
+</div>
 <div class="container">
 </div>
 
 <!-- 多说评论框 start -->
-<div class="ds-share flat duoshuo" data-thread-key="FredLinkshome_001" data-title="我的常用Links" data-images="" data-content="常用的链接" data-url="http://www.freddon.com/fredlinks/index.html">
+<div class="ds-share flat duoshuo" data-thread-key="FredLinkshome_001" data-title="我的常用Links" data-images=""
+     data-content="常用的链接" data-url="http://www.freddon.com/fredlinks/index.html">
     <div class="ds-share-inline">
-        <ul  class="ds-share-icons-16">
+        <ul class="ds-share-icons-16">
 
-            <li >分享到：</li>
+            <li>分享到：</li>
             <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
             <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
             <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
@@ -53,14 +69,16 @@
     </div>
 </div>
 
-<div class="ds-thread duoshuo" data-thread-key="FredLinkshome_001" data-title="首页FredLink" data-url="http://www.freddon.com/index.html"></div>
+<div class="ds-thread duoshuo" data-thread-key="FredLinkshome_001" data-title="首页FredLink"
+     data-url="http://www.freddon.com/index.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-    var duoshuoQuery = {short_name:"mlinks"};
-    (function() {
+    var duoshuoQuery = {short_name: "mlinks"};
+    (function () {
         var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
+        ds.type = 'text/javascript';
+        ds.async = true;
         ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
         ds.charset = 'UTF-8';
         (document.getElementsByTagName('head')[0]
@@ -78,7 +96,6 @@
         </p>
     </footer>
 </div>
-
 
 
 </body>
@@ -100,52 +117,53 @@
 </script>
 <script src="js/data.js"></script>
 <script src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
+<script src="js/msgview.js"></script>
 <script src="js/geo.js"></script>
 <script>
 
-    function _(label){
-        var query=document.querySelectorAll(label);
-        if(query && query.length==1){
+    function _(label) {
+        var query = document.querySelectorAll(label);
+        if (query && query.length == 1) {
             return query[0];
         }
         return query;
     }
 
-    var mkLinks=function(links){
-        var content=[];
-        for(var i=0;i<links.length;i++){
-            var block=links[i];
-            var piece=[];
+    var mkLinks = function (links) {
+        var content = [];
+        for (var i = 0; i < links.length; i++) {
+            var block = links[i];
+            var piece = [];
             piece.push('<div class="content-wrapper">');
-            piece.push('<p class="content-title">'+block.category+'</p>');
+            piece.push('<p class="content-title">' + block.category + '</p>');
             piece.push('<div class="content">');
-            var lks=[];
-                for(var j=0; j<block.blocks.length;j++){
-                    var link=block.blocks[j];
-                    if(block.blocked != 0){
-                        lks.push('<div class="boxer"> <div class="boxer-title">'+link.text+'</div>');
-                        lks.push('<div class="boxer-description">');
-                        var l=[];
-                        for(var k=0;k<link.links.length;k++){
-                            var lk=link.links[k];
-                            if(!lk.desc){
-                                lk.desc=lk.text;
-                            }
-                            l.push('<a href="'+lk.href+'" class="link-cell" target="_blank">'+lk.text +
-                                    '<span class="link-tips">'+lk.desc+'</span></a>');
+            var lks = [];
+            for (var j = 0; j < block.blocks.length; j++) {
+                var link = block.blocks[j];
+                if (block.blocked != 0) {
+                    lks.push('<div class="boxer"> <div class="boxer-title">' + link.text + '</div>');
+                    lks.push('<div class="boxer-description">');
+                    var l = [];
+                    for (var k = 0; k < link.links.length; k++) {
+                        var lk = link.links[k];
+                        if (!lk.desc) {
+                            lk.desc = lk.text;
                         }
-                        lks.push(l.join(''));
-                        lks.push('</div></div>');
-                    }else{
-                        if(!link.desc){
-                            link.desc=link.text;
-                        }
-                        lks.push('<div class="boxer boxer-small"> <div class="boxer-description">');
-                        lks.push('<a href="'+link.href+'" class="link-cell" target="_blank">'+link.text +
-                                '<span class="link-tips">'+link.desc+'</span></a></div>');
-                        lks.push('</div>');
+                        l.push('<a href="' + lk.href + '" class="link-cell" target="_blank">' + lk.text +
+                                '<span class="link-tips">' + lk.desc + '</span></a>');
                     }
+                    lks.push(l.join(''));
+                    lks.push('</div></div>');
+                } else {
+                    if (!link.desc) {
+                        link.desc = link.text;
+                    }
+                    lks.push('<div class="boxer boxer-small"> <div class="boxer-description">');
+                    lks.push('<a href="' + link.href + '" class="link-cell" target="_blank">' + link.text +
+                            '<span class="link-tips">' + link.desc + '</span></a></div>');
+                    lks.push('</div>');
                 }
+            }
 
             piece.push(lks.join(''));
             piece.push('</div>');
@@ -156,7 +174,151 @@
         return content;
     };
 
-    _(".container").innerHTML=mkLinks(links).join('');
-    console.log(_(".container").innerHTML)
+    _(".container").innerHTML = mkLinks(links).join('');
+//    console.log(_(".container").innerHTML)
+</script>
+<script>
+    window.IsURL = function (str_url) {
+        var strRegex = '^((https|http|ftp|rtsp|mms)?://)' + '?(([0-9a-z_!~*\'().&=+win%-]+: )?[0-9a-z_!~*\'().&=+win%-]+@)?' //ftp的user@
+                + '(([0-9]{1,3}.){3}[0-9]{1,3}' // IP形式的URL- 199.194.52.184
+                + '|' // 允许IP和DOMAIN（域名）
+                + '([0-9a-z_!~*\'()-]+.)*' // 域名- www.
+                + '([0-9a-z][0-9a-z-]{0,61})?[0-9a-z].' // 二级域名
+                + '[a-z]{2,6})' // first level domain- .com or .museum
+                + '(:[0-9]{1,4})?' // 端口- :80
+                + '((/?)|' // a slash isn't required if there is no file name
+                + '(/[0-9a-zA-Z_!~*\'().;?:@&=+win,%#-]+)+/?)$';
+        var re = new RegExp(strRegex);
+        //re.test()
+        if (re.test(str_url)) {
+            return (true);
+        } else {
+            return (false);
+        }
+    };
+
+    var msgView = new UIMsgVew();
+
+    function deleteCookieLink(link) {
+        if (!link) {
+            return;
+        }
+        var hotlinks = localStorage.getItem('HotLinks');
+        var links = null;
+        if (hotlinks) {
+            links = JSON.parse(hotlinks);
+        }
+        if (!links) {
+            return;
+        }
+        for (var i = 0; i < links.length; i++) {
+            if (links[i] == link) {
+                links.splice(i, 1);
+                i--;
+                break;//暂时不删除同名的
+            }
+        }
+        if (links.length == 0) {
+            localStorage.clear();
+            return;
+        }
+        localStorage.setItem('HotLinks', JSON.stringify(links));
+    }
+
+    function updateFavorLinks() {
+        var hotlinks = localStorage.getItem('HotLinks');
+        var links = null;
+        if (hotlinks) {
+            links = JSON.parse(hotlinks);
+        }
+        _(".hotUrl").innerHTML = "";
+        if (!links || links.length == 0) {
+            return;
+        }
+        var piece = [];
+        piece.push('<div class="content-wrapper">');
+        piece.push('<p class="content-title">本地Cookie热链<span style="font-size: 10px;padding:6px;color:#999999">最多50个</span></p>');
+        piece.push('<div class="content">');
+        var lks = [];
+        for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+            lks.push('<div class="boxer boxer-flexiable"> ');
+            lks.push('<a href="' + link + '" class="link-cell" target="_blank">' + link +
+                    '</a><span class="del-link" data-con="' + link + '" onclick="javascript:delClick(this);">X</span></div>');
+        }
+        piece.push(lks.join(''));
+        piece.push('</div>');
+        _(".hotUrl").innerHTML = piece.join('');
+
+    }
+    updateFavorLinks();
+
+    _(".urlRecord.button").addEventListener('click', function () {
+
+        var queryLink = _(".urlRecorder").innerText;
+        if (!IsURL(queryLink)) {
+            msgView.show("请检查URL是否合法");
+            return;
+        }
+
+        _(".urlRecorder").innerText = "";
+
+        var hotlinks = localStorage.getItem('HotLinks');
+        var obj = [];
+        if (hotlinks) {
+            obj = JSON.parse(hotlinks);
+        }
+
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i] == queryLink) {
+                obj.splice(i, 1);
+                break;
+            }
+        }
+        obj[obj.length] = queryLink;
+        if (obj.length == 10) {
+            obj.splice(0, 1);
+        }
+        localStorage.setItem('HotLinks', JSON.stringify(obj));
+
+        updateFavorLinks();
+    });
+    var tips = "这里可输入需要添加到COOKIE的URL";
+    _(".urlRecorder").innerHTML = tips;
+    _(".urlRecorder").style.color = '#DDDDDD';
+    _(".urlRecorder").onfocus = function () {
+        if (this.innerHTML == tips) {
+            this.innerHTML = "";
+            _(".urlRecorder").style.color = '#000000';
+        }
+    }
+    _(".urlRecorder").onblur = function () {
+        if (this.innerHTML === "") {
+            this.innerHTML = tips;
+            _(".urlRecorder").style.color = '#DDDDDD';
+        }
+    }
+    _('.cookieUrl').addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (e && e.preventDefault)
+            e.preventDefault();
+        else
+            window.event.returnValue = false;
+        return false;
+    });
+    _('.header').addEventListener("click", function (e) {
+        /* _('.cookieUrl').className +="hidden";*/
+        _('.cookieUrl').className = _('.cookieUrl').className.replace(" hidden", "");
+    });
+    _('.hideBar').addEventListener("click", function (e) {
+        _('.cookieUrl').className += " hidden";
+    });
+
+    function delClick(o) {
+        var url = o.getAttribute("data-con");
+        deleteCookieLink(url);
+        updateFavorLinks();
+    }
+
 </script>
 </html>

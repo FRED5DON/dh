@@ -1,4 +1,4 @@
-div.content-wrapper .content-title, div.content-wrapper .content .boxer {
+div.content-wrapper .content-title, div.content-wrapper .content .boxer, div.msg-view {
   box-shadow: 1px 1px 2px rgba(221, 221, 221, 0.7);
   -moz-box-shadow: 1px 1px 2px rgba(221, 221, 221, 0.7);
   -webkit-box-shadow: 1px 1px 2px rgba(221, 221, 221, 0.7);
@@ -9,6 +9,9 @@ body, div, ul, li, p, a, h1, h2, h3, h4, h5, h6, input, form {
 
 a {
   text-decoration: none; }
+
+.hidden {
+  display: none; }
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial,"Microsoft YaHei", sans-serif;
@@ -104,7 +107,7 @@ div.content-wrapper {
       div.content-wrapper .content .boxer span.link-tips {
         display: none;
         position: absolute;
-        top: 126px;
+        top: 120px;
         padding: 12px;
         right: -10px;
         left: -10px;
@@ -117,6 +120,117 @@ div.content-wrapper {
         border-width: 0; }
       div.content-wrapper .content .boxer.boxer-small span.link-tips {
         top: 44px; }
+    div.content-wrapper .content .boxer.boxer-flexiable {
+      width: auto !important;
+      height: 1.4em; }
+      div.content-wrapper .content .boxer.boxer-flexiable a.link-cell {
+        border-width: 0; }
+      div.content-wrapper .content .boxer.boxer-flexiable span.del-link {
+        cursor: pointer;
+        padding: 6px; }
+        div.content-wrapper .content .boxer.boxer-flexiable span.del-link:hover {
+          box-shadow: 1px 1px 2px rgba(221, 221, 221, 0.9), -1px -1px 2px rgba(221, 221, 221, 0.9); }
+        div.content-wrapper .content .boxer.boxer-flexiable span.del-link:active {
+          background: #DDDDDD; }
+
+div.msg-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 44px;
+  width: 200px;
+  padding: 6px;
+  display: none;
+  background: #ff7b2c;
+  z-index: 180; }
+
+.msg-view-animation-in {
+  -webkit-animation-duration: .2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: .1s;
+  -webkit-animation-direction: alternate;
+  -moz-animation: movein .2s linear;
+  -ms-animation: movein .2s linear;
+  animation: movein .2s linear; }
+
+.msg-view-animation-out {
+  -webkit-animation-duration: .2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: .1s;
+  -webkit-animation-direction: alternate;
+  -moz-animation: moveout .2s linear;
+  -ms-animation: movein .2s linear;
+  animation: movein .2s linear; }
+
+@-webkit-keyframes moveout {
+  100% {
+    margin-left: -200px;
+    opacity: 0.6; }
+  75% {
+    margin-left: -175px;
+    opacity: 0.8; }
+  50% {
+    margin-left: -130px;
+    opacity: 0.9; }
+  25% {
+    margin-left: -80px;
+    opacity: 1; }
+  0% {
+    margin-left: 0px;
+    opacity: 1; } }
+@-webkit-keyframes movein {
+  0% {
+    margin-left: -200px;
+    opacity: 0.6; }
+  25% {
+    margin-left: -175px;
+    opacity: 0.8; }
+  50% {
+    margin-left: -130px;
+    opacity: 0.9; }
+  75% {
+    margin-left: -80px;
+    opacity: 1; }
+  100% {
+    margin-left: 0px;
+    opacity: 1; } }
+div.cookieUrl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 44px;
+  padding: 6px;
+  background: #DDDDDD;
+  width: 100%;
+  z-index: 105;
+  text-align: center; }
+  div.cookieUrl div.urlRecorder {
+    width: 70%;
+    display: inline-block;
+    outline: none;
+    padding: 0 12px;
+    background: #FFFFFF;
+    text-align: left; }
+  div.cookieUrl div.hideBar {
+    width: 40px;
+    display: inline-block;
+    text-align: center;
+    padding: 0 12px;
+    cursor: pointer;
+    background: #FFFFFF; }
+    div.cookieUrl div.hideBar:hover {
+      box-shadow: 1px 1px 2px rgba(221, 221, 221, 0.7), -1px -1px 2px rgba(221, 221, 221, 0.7); }
+    div.cookieUrl div.hideBar:active {
+      background: #666666; }
+  div.cookieUrl div.button {
+    width: 80px;
+    display: inline-block;
+    text-align: center;
+    background: #8be30e;
+    cursor: pointer; }
+    div.cookieUrl div.button:hover {
+      background: #75bf03; }
 
 .container + div.duoshuo {
   margin-top: 128px; }

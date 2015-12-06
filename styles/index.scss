@@ -14,6 +14,7 @@ $color-highlight-focus: #75bf03;
 $box-bg:#EEEEEE;
 $color-shadow:rgba(221,221,221,0.7);
 $color-shadow-darker:rgba(221,221,221,0.9);
+$color-shadow-noalpha:#DDDDDD;
 $color-font-blur: rgba(81, 81, 81, 0.9);
 
 $padding-normal-small:6px;
@@ -33,6 +34,9 @@ body,div,ul,li,p,a,h1,h2,h3,h4,h5,h6,input,form{
 }
 a{
   text-decoration: none;
+}
+.hidden{
+  display: none;
 }
 body{
   font-family: "Helvetica Neue", Helvetica, Arial,"Microsoft YaHei", sans-serif;
@@ -150,7 +154,7 @@ div.content-wrapper{
       span.link-tips{
         display:none;
         position: absolute;
-        top:  $box-height - 2 * $box-borer-width;
+        top:  $box-height - 2 * $box-borer-width - $padding-normal-small;
         padding: $padding-normal;
         right: $padding-normal-smaller - $padding-normal;
         left: $padding-normal-smaller - $padding-normal;
@@ -170,10 +174,149 @@ div.content-wrapper{
         top:  $box-height / 4 + 2 * $padding-normal-small;
       }
     }
+    .boxer.boxer-flexiable{
+      width: auto!important;
+      a.link-cell{
+        border-width: 0;
+      }
+      height: 1.4em;
+      span.del-link{
+        cursor: pointer;
+        padding: $padding-normal-small;
+        &:hover{
+          box-shadow: 1px 1px 2px $color-shadow-darker,-1px -1px 2px $color-shadow-darker;
+        }
+        &:active{
+          background: $color-shadow-noalpha;
+        }
+      }
+    }
 
   }
 
 }
+div.msg-view{
+  position: fixed;
+  top:0;
+  left: 0;
+  height: 44px;
+  width: 200px;
+  padding: $padding-normal-small;
+  display: none;
+  background: #ff7b2c;
+  @extend %shadowBorderCC;
+  z-index: 180;
+}
+.msg-view-animation-in {
+  -webkit-animation-duration: .2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: .1s;
+  -webkit-animation-direction: alternate;
+  -moz-animation: movein .2s linear;
+  -ms-animation: movein .2s linear;
+  animation: movein .2s linear;
+}
+.msg-view-animation-out {
+  -webkit-animation-duration: .2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: .1s;
+  -webkit-animation-direction: alternate;
+  -moz-animation: moveout .2s linear;
+  -ms-animation: movein .2s linear;
+  animation: movein .2s linear;
+}
+@-webkit-keyframes moveout {
+  100% {
+    margin-left: - 200px;
+    opacity: 0.6;
+  }
+  75% {
+    margin-left: -175px;
+    opacity: 0.8;
+  }
+  50% {
+    margin-left: -130px;
+    opacity: 0.9;
+  }
+  25% {
+    margin-left: -80px;
+    opacity: 1;
+  }
+  0% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes movein {
+  0% {
+    margin-left: - 200px;
+    opacity: 0.6;
+  }
+  25% {
+    margin-left: -175px;
+    opacity: 0.8;
+  }
+  50% {
+    margin-left: -130px;
+    opacity: 0.9;
+  }
+  75% {
+    margin-left: -80px;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+}
+
+
+div.cookieUrl{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  line-height: 44px;
+  padding: $padding-normal-small;
+  background: $color-shadow-noalpha;
+  width: 100%;
+  z-index: 105;
+  text-align: center;
+  div.urlRecorder{
+    width: 70%;
+    display: inline-block;
+    outline: none;
+    padding: 0 $padding-normal;
+    background: $color-bg;
+    text-align: left;
+  }
+  div.hideBar{
+    width: 40px;
+    display: inline-block;
+    text-align: center;
+    padding: 0 $padding-normal;
+    cursor: pointer;
+    background: $color-bg;
+    &:hover{
+      box-shadow: 1px 1px 2px $color-shadow,-1px -1px 2px $color-shadow;
+    }
+    &:active{
+      background: $color-desc;
+    }
+  }
+  div.button{
+    width: 80px;
+    display: inline-block;
+    text-align: center;
+    background: $color-highlight;
+    cursor: pointer;
+    &:hover{
+      background: $color-highlight-focus;
+    }
+  }
+}
+
+
 .container + div.duoshuo{
   margin-top: $box-height;
 }
