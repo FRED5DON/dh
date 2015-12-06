@@ -2,3 +2,6 @@ User-agent: *
 Disallow: /include/
 Disallow: /CNAME
 Disallow: /dynamic.html
+Disallow: /js/data.js
+Disallow: /js/geo.js
+Disallow: /styles/index.scss

@@ -413,19 +413,9 @@ var links = [
                 desc: ""
             },
             {
-                text: "dribbble",
-                href: "https://dribbble.com/",
-                desc: "面向创作家、艺术工作者、设计师等创意类作品的人群，提供作品在线服务，供网友在线查看已经完成的作品或者正在创作的作品的交流网站"
-            },
-            {
-                text: "Zcool搜灵感",
-                href: "http://idea.zcool.com.cn/",
-                desc: ""
-            },
-            {
-                text: "新奇众筹",
-                href: "http://www.thisiswhyimbroke.com/",
-                desc: "没有买不到只有想不到"
+                text: "西米主页",
+                href: "https://www.sagosoft.com/",
+                desc: "Fred 主页"
             }
 
         ]

@@ -49,7 +49,7 @@ body{
     background: $color-bg;
     position: absolute;
     right:$padding-normal ;
-    top:$padding-normal;
+    top:$padding-normal + $padding-normal-smaller * 2;
     border: $box-borer-width solid $color-highlight;
     input{
       border-width: 0;
