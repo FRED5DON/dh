@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="header"><h3><img src="./images/logo.png" height="27"/>FRED Links<span
-        style="font-size: 10px;padding:6px;color:#999999">点击此处添加Cookie快链</span></h3>
+        style="font-size: 10px;padding:6px;color:#999999" class="showAddBox">点击此处添加Cookie快链</span></h3>
     <!--[if IEMobile]>
     <span>
     <iframe name="sinaWeatherTool"
@@ -39,7 +39,8 @@
 </div>
 
 <div class="cookieUrl hidden">
-    <div class="urlRecorder" contenteditable="true"></div>
+    <input class="urlName" placeholder="这里可输入需要添加到COOKIE的URL[必填]"/>
+    <input class="urlRecorder" placeholder="这里输入显示名称[选填]"/>
     <div class="urlRecord button">+</div>
     <div class="hideBar">︽</div>
 </div>
@@ -176,7 +177,7 @@
     };
 
     _(".container").innerHTML = mkLinks(links).join('');
-//    console.log(_(".container").innerHTML)
+    console.log(_(".container").innerHTML)
 </script>
 <script>
     var msgView = new UIMsgVew();
@@ -194,7 +195,7 @@
             return;
         }
         for (var i = 0; i < links.length; i++) {
-            if (links[i] == link) {
+            if (links[i].src == link) {
                 links.splice(i, 1);
                 i--;
                 break;//暂时不删除同名的
@@ -225,8 +226,8 @@
         for (var i = 0; i < links.length; i++) {
             var link = links[i];
             lks.push('<div class="boxer boxer-flexiable"> ');
-            lks.push('<a href="' + link + '" class="link-cell" target="_blank">' + link +
-                    '</a><span class="del-link" data-con="' + link + '" onclick="javascript:delClick(this);">X</span></div>');
+            lks.push('<a href="' + link.src + '" class="link-cell" target="_blank">' + (link.text?link.text:link.src) +
+                    '</a><span class="del-link" data-con="' + link.src + '" onclick="javascript:delClick(this);">X</span></div>');
         }
         piece.push(lks.join(''));
         piece.push('</div>');
@@ -234,16 +235,18 @@
 
     }
     updateFavorLinks();
-
+    var FAV_COUNT =50;
     _(".urlRecord.button").addEventListener('click', function () {
 
-        var queryLink = _(".urlRecorder").innerText;
+        var queryLink = _(".urlRecorder").value;
+        var queryName =  _(".urlName").value;
         if (!IsURL(queryLink)) {
             msgView.show("请检查URL是否合法");
             return;
         }
 
-        _(".urlRecorder").innerText = "";
+        _(".urlRecorder").value = "";
+        _(".urlName").value = "";
 
         var hotlinks = localStorage.getItem('HotLinks');
         var obj = [];
@@ -252,34 +255,23 @@
         }
 
         for (var i = 0; i < obj.length; i++) {
-            if (obj[i] == queryLink) {
+            if (obj[i].src == queryLink) {
                 obj.splice(i, 1);
                 break;
             }
+            if (obj[i].text == queryName) {
+               msgView.show("名称已存在，请换一个");
+                return;
+            }
         }
-        obj[obj.length] = queryLink;
-        if (obj.length == 10) {
+        obj[obj.length] = {"text":queryName,"src":queryLink};
+        if (obj.length == FAV_COUNT) {
             obj.splice(0, 1);
         }
         localStorage.setItem('HotLinks', JSON.stringify(obj));
-
         updateFavorLinks();
     });
-    var tips = "这里可输入需要添加到COOKIE的URL";
-    _(".urlRecorder").innerHTML = tips;
-    _(".urlRecorder").style.color = '#DDDDDD';
-    _(".urlRecorder").onfocus = function () {
-        if (this.innerHTML == tips) {
-            this.innerHTML = "";
-            _(".urlRecorder").style.color = '#000000';
-        }
-    }
-    _(".urlRecorder").onblur = function () {
-        if (this.innerHTML === "") {
-            this.innerHTML = tips;
-            _(".urlRecorder").style.color = '#DDDDDD';
-        }
-    }
+
     _('.cookieUrl').addEventListener("click", function (e) {
         e.stopPropagation();
         if (e && e.preventDefault)
@@ -288,9 +280,10 @@
             window.event.returnValue = false;
         return false;
     });
-    _('.header').addEventListener("click", function (e) {
+    _('.showAddBox').addEventListener("click", function (e) {
         /* _('.cookieUrl').className +="hidden";*/
         _('.cookieUrl').className = _('.cookieUrl').className.replace(" hidden", "");
+        _('.urlName').focus();
     });
     _('.hideBar').addEventListener("click", function (e) {
         _('.cookieUrl').className += " hidden";

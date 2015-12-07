@@ -205,11 +205,20 @@ div.cookieUrl {
   width: 100%;
   z-index: 105;
   text-align: center; }
-  div.cookieUrl div.urlRecorder {
-    width: 70%;
+  div.cookieUrl input.urlName {
+    width: 15%;
     display: inline-block;
     outline: none;
-    padding: 0 12px;
+    white-space: nowrap;
+    padding: 12px;
+    background: #FFFFFF;
+    text-align: left; }
+  div.cookieUrl input.urlRecorder {
+    width: 52%;
+    display: inline-block;
+    outline: none;
+    white-space: nowrap;
+    padding: 12px;
     background: #FFFFFF;
     text-align: left; }
   div.cookieUrl div.hideBar {
