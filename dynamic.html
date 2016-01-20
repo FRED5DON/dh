@@ -30,12 +30,13 @@
             height="20" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
 </span>
     <![endif]-->
-    <form class="baidu_search_box" onsubmit="return baiduWithHttps(this)" action="http://www.baidu.com/baidu"
-          target="_blank">
-        <input name="tn" type="hidden" value="SE_zzsearchcode_shhzc78w">
-        <input type="text" onfocus="checkHttps" name="word" size="30">
-        <input type="submit" value="百度搜索">
-    </form>
+        <form class="baidu_search_box" action="http://www.baidu.com/baidu" target="_blank">
+            <input name=ie type=hidden value=utf-8><input name=tn type=hidden value='baidu' />
+            <input id="searchText" class="search-bar" autocomplete="off" type="text" name="word">
+            <div id="auto" ></div><input class="search-btn" type="submit" value="百度一下">
+        </form>
+
+
 </div>
 
 <div class="cookieUrl hidden">
@@ -117,8 +118,9 @@
         }
     }
 </script>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/acp.js"></script>
 <script src="js/data.js"></script>
-<script src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
 <script src="js/msgview.js"></script>
 <script src="js/geo.js"></script>
 <script>

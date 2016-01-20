@@ -50,6 +50,7 @@ body{
   }
   .baidu_search_box{
     display: block;
+    z-index: 10;
     background: $color-bg;
     position: absolute;
     right:$padding-normal ;

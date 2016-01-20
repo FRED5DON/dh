@@ -24,6 +24,7 @@ body {
     display: inline; }
   .header .baidu_search_box {
     display: block;
+    z-index: 10;
     background: #FFFFFF;
     position: absolute;
     right: 12px;

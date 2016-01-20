@@ -30,12 +30,16 @@
             height="20" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
 </span>
     <![endif]-->
-    <form class="baidu_search_box" onsubmit="return baiduWithHttps(this)" action="http://www.baidu.com/baidu"
-          target="_blank">
-        <input name="tn" type="hidden" value="SE_zzsearchcode_shhzc78w">
-        <input type="text" onfocus="checkHttps" name="word" size="30">
-        <input type="submit" value="百度搜索">
-    </form>
+    <div class="baidu_search_box">
+        <form class="baidu" action="http://www.baidu.com/baidu" target="_blank">
+            <input name=ie type=hidden value="utf-8">
+            <input name=tn type=hidden value="baidu">
+            <input id="searchText" class="search-bar" autocomplete="off" type="text" name="word">
+            <input class="search-btn" type="submit" value="百度一下">
+            <div id="auto"></div>
+        </form>
+    </div>
+
 </div>
 
 <div class="cookieUrl hidden">
@@ -102,23 +106,8 @@
 
 
 </body>
-<script src="http://s1.bdstatic.com/r/www/cache/global/js/BaiduHttps_20150714_zhanzhang.js"></script>
-<script>
-    function checkHttps() {
-        BaiduHttps.useHttps();
-    }
-    function baiduWithHttps(formname) {
-        var data = BaiduHttps.useHttps();
-        if (data.s === 0) {
-            return true;
-        }
-        else {
-            formname.action = 'https://www.baidu.com/baidu' + '?ssl_s=1&ssl_c' + data.ssl_code;
-            return true;
-        }
-    }
-</script>
-<script src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/acp.js"></script>
 <script src="js/msgview.js"></script>
 <script>
 
@@ -131,7 +120,7 @@
     }
 
 
-     
+
 </script>
 <script>
     var msgView = new UIMsgVew();
