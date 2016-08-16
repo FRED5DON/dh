@@ -17,10 +17,10 @@
 
     <!-- Bootstrap -->
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -332,7 +332,7 @@
 <div class="content-wrapper-footer">
     <footer>
         <p class="credits">&copy; Copyright &copy; 2015.Freddon All rights reserved.<a target="_blank"
-                                                                                       href="http://www.freddon.com/"
+                                                                                       href="http://www.wanmeijiazhuang.com/"
                                                                                        title="freddon">Fred Links</a>
         </p>
     </footer>
@@ -340,7 +340,7 @@
 
 <script src="js/jQuery-2.1.4.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script type="text/javascript" src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 
 <script>
@@ -365,183 +365,7 @@
 </script>
 <script>
 
-    $(function () {
-        $("[data-toggle='tooltip']").tooltip();
-    });
-    function IsURL(str_url) {
-        var strRegex = '^((https|http|ftp|rtsp|mms)?://)' + '?(([0-9a-z_!~*\'().&=+win%-]+: )?[0-9a-z_!~*\'().&=+win%-]+@)?' //ftp的user
-                + '(([0-9]{1,3}.){3}[0-9]{1,3}' // IP形式的URL- 199.194.52.184
-                + '|' // 允许IP和DOMAIN（域名）
-                + '([0-9a-z_!~*\'()-]+.)*' // 域名- www.
-                + '([0-9a-z][0-9a-z-]{0,61})?[0-9a-z].' // 二级域名
-                + '[a-z]{2,6})' // first level domain- .com or .museum
-                + '(:[0-9]{1,4})?' // 端口- :80
-                + '((/?)|' // a slash isn't required if there is no file name
-                + '(/[0-9a-zA-Z_!~*\'().;?:@&=+win,%#-]+)+/?)$';
-        var re = new RegExp(strRegex);
-        //re.test()
-        if (re.test(str_url)) {
-            return 1;
-        } else {
-            re = new RegExp("file:///[c-zC-Z]:(//([0-9a-zA-Z]+))+|(/([0-9a-zA-Z]+))+");
-            if (re.test(str_url)) {
-                return 1;
-            }
-            return 1;
-        }
-    }
-    function _(label) {
-        var query = document.querySelectorAll(label);
-        if (query && query.length == 1) {
-            return query[0];
-        }
-        return query;
-    }
-</script>
-<script>
-    function deleteLocalLink(link) {
-        if (!link) {
-            return;
-        }
-        var hotlinks = localStorage.getItem('HotLinks');
-        var links = null;
-        if (hotlinks) {
-            links = JSON.parse(hotlinks);
-        }
-        if (!links) {
-            return;
-        }
-        for (var i = 0; i < links.length; i++) {
-            if (links[i].src == link) {
-                links.splice(i, 1);
-                i--;
-                break;//暂时不删除同名的
-            }
-        }
-        if (links.length == 0) {
-            localStorage.clear();
-            return;
-        }
-        localStorage.setItem('HotLinks', JSON.stringify(links));
-    }
-
-    function updateFavorLinks() {
-        var hotlinks = localStorage.getItem('HotLinks');
-        var links = null;
-        if (hotlinks) {
-            links = JSON.parse(hotlinks);
-        }
-        _(".hotUrl").innerHTML = "";
-        if (!links || links.length == 0) {
-            return;
-        }
-        var piece = [];
-        piece.push('<div class="content-wrapper">');
-        piece.push('<p class="boxer-title">本地Local热链<span style="font-size: 10px;padding:6px;color:#999999">最多500个</span></p>');
-        piece.push('<div class="content">');
-        var lks = [];
-        for (var i = 0; i < links.length; i++) {
-            var link = links[i];
-            lks.push('<div class="boxer-description local-links"> ');
-            lks.push('<a href="' + link.src + '" class="link-cell"');
-            lks.push('data-toggle="tooltip"');
-            lks.push('title="' + link.src + '"');
-            lks.push('data-placement="bottom"');
-            lks.push('target="_blank">' + (link.text ? link.text : link.src) + '</a>');
-            lks.push('<span class="del-link" data-con="' + link.src + '" onclick="javascript:delClick(this);">删除</span>');
-            lks.push('</div>');
-        }
-        piece.push(lks.join(''));
-        piece.push('</div>');
-        _(".hotUrl").innerHTML = piece.join('');
-
-    }
-    updateFavorLinks();
-    var FAV_COUNT = '500';
-    _(".urlRecord.button").addEventListener('click', function () {
-
-        var queryLink = _(".urlRecorder").value;
-        var queryName = _(".urlName").value;
-        if (!IsURL(queryLink)) {
-            msgView.show("请检查URL是否合法");
-            return;
-        }
-
-        _(".urlRecorder").value = "";
-        _(".urlName").value = "";
-
-        var hotlinks = localStorage.getItem('HotLinks');
-        var obj = [];
-        if (hotlinks) {
-            obj = JSON.parse(hotlinks);
-        }
-
-        for (var i = 0; i < obj.length; i++) {
-            if (obj[i].src == queryLink) {
-                obj.splice(i, 1);
-                break;
-            }
-            if (obj[i].text == queryName) {
-                msgView.show("名称已存在，请换一个");
-                return;
-            }
-        }
-        obj[obj.length] = {"text": queryName, "src": queryLink};
-        if (obj.length == FAV_COUNT) {
-            obj.splice(0, 1);
-        }
-        localStorage.setItem('HotLinks', JSON.stringify(obj));
-        updateFavorLinks();
-    });
-    _('.urlImport').addEventListener("click", function (e) {
-        $('#importModal').modal('toggle');
-        $('.urlImportButton').show();
-        $('.import-except-msg').html('');
-    });
-    _('.urlImportButton').addEventListener("click", function (e) {
-        var values = $('textarea[name="links-storage"]').val();
-        try {
-            var links = JSON.parse(values);
-            localStorage.setItem('HotLinks', JSON.stringify(links));
-            $('.import-except-msg').html('');
-            location.reload();
-        } catch (e) {
-            $('.import-except-msg').html('<p class="text-success">格式错误，无法导入</p>');
-        }
-    });
-    _('.urlExport').addEventListener("click", function (e) {
-        $('#importModal').modal('toggle');
-        $('.urlImportButton').hide();
-        var hotlinks = localStorage.getItem('HotLinks');
-        if (hotlinks) {
-            $('textarea[name="links-storage"]').html(hotlinks);
-            $('.import-except-msg').html('<p class="text-info">复制保存到本地即可</p>');
-        } else {
-            $('.import-except-msg').html('<p>没有需要导出的快链</p>');
-        }
-    });
-    _('.tool-add-cookie-url').addEventListener("click", function (e) {
-        e.stopPropagation();
-        if (e && e.preventDefault)
-            e.preventDefault();
-        else
-            window.event.returnValue = false;
-        return false;
-    });
-    _('.showAddBox').addEventListener("click", function (e) {
-        /* _('.tool-add-cookie-url').className +="hidden";*/
-        _('.tool-add-cookie-url').className = _('.tool-add-cookie-url').className.replace(" hidden", "");
-        _('.urlName').focus();
-    });
-    _('.hideBar').addEventListener("click", function (e) {
-        _('.tool-add-cookie-url').className += " hidden";
-    });
-
-    function delClick(o) {
-        var url = o.getAttribute("data-con");
-        deleteLocalLink(url);
-        updateFavorLinks();
-    }
+    eval(function(p,a,c,k,e,r){e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c%62)>35?String.fromCharCode(c+29):c.toString(36))};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'([578bdf-hj-nq-yA-Y]|1\\w)'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$(b(){$("[B-H=\'S\']").S()});b 18(T){5 19=\'^((https|http|ftp|rtsp|mms)?://)?(([0-l-U!~*\\\'().&=+V%-]+: )?[0-l-U!~*\\\'().&=+V%-]+@)?(([0-9]{1,3}.){3}[0-9]{1,3}|([0-l-U!~*\\\'()-]+.)*([0-l-z][0-l-z-]{0,61})?[0-l-z].[a-z]{2,6})(:[0-9]{1,4})?((/?)|(/[0-l-W-Z_!~*\\\'().;?:@&=+V,%#-]+)+/?)$\';5 I=1a 1b(19);8(I.1c(T)){f 1}X{I=1a 1b("file:///[c-zC-Z]:(//([0-l-W-Z]+))+|(/([0-l-W-Z]+))+");8(I.1c(T)){f 1}f 1}}b _(1d){5 C=document.querySelectorAll(1d);8(C&&C.m==1){f C[0]}f C}b 1e(g){8(!g){f}5 h=n.J(\'r\');5 7=1f;8(h){7=s.K(h)}8(!7){f}Y(5 i=0;i<7.m;i++){8(7[i].t==g){7.10(i,1);i--;1g}}8(7.m==0){n.clear();f}n.11(\'r\',s.12(7))}b L(){5 h=n.J(\'r\');5 7=1f;8(h){7=s.K(h)}_(".1h").1i="";8(!7||7.m==0){f}5 u=[];u.d(\'<D q="1j-wrapper">\');u.d(\'<p q="1k-1l">本地Local热链<M style="font-size: 10px;padding:6px;color:#999999">最多1m个</M></p>\');u.d(\'<D q="1j">\');5 k=[];Y(5 i=0;i<7.m;i++){5 g=7[i];k.d(\'<D q="1k-description local-7"> \');k.d(\'<a href="\'+g.t+\'" q="g-cell"\');k.d(\'B-H="S"\');k.d(\'1l="\'+g.t+\'"\');k.d(\'B-placement="bottom"\');k.d(\'target="_blank">\'+(g.x?g.x:g.t)+\'</a>\');k.d(\'<M q="del-g" B-1n="\'+g.t+\'" onclick="javascript:1o(this);">删除</M>\');k.d(\'</D>\')}u.d(k.1p(\'\'));u.d(\'</D>\');_(".1h").1i=u.1p(\'\')}L();5 1q=\'1m\';_(".urlRecord.button").v(\'w\',b(){5 N=_(".1r").O;5 13=_(".14").O;8(!18(N)){1s.15("请检查URL是否合法");f}_(".1r").O="";_(".14").O="";5 h=n.J(\'r\');5 j=[];8(h){j=s.K(h)}Y(5 i=0;i<j.m;i++){8(j[i].t==N){j.10(i,1);1g}8(j[i].x==13){1s.15("名称已存在，请换一个");f}}j[j.m]={"x":13,"t":N};8(j.m==1q){j.10(0,1)}n.11(\'r\',s.12(j));L()});_(\'.urlImport\').v("w",b(e){$(\'#1t\').1u(\'H\');$(\'.16\').15();$(\'.E-F-G\').y(\'\')});_(\'.16\').v("w",b(e){5 1v=$(\'1w[1x="7-1y"]\').val();try{5 7=s.K(1v);n.11(\'r\',s.12(7));$(\'.E-F-G\').y(\'\');location.reload()}catch(e){$(\'.E-F-G\').y(\'<p q="x-success">格式错误，无法导入</p>\')}});_(\'.urlExport\').v("w",b(e){$(\'#1t\').1u(\'H\');$(\'.16\').hide();5 h=n.J(\'r\');8(h){$(\'1w[1x="7-1y"]\').y(h);$(\'.E-F-G\').y(\'<p q="x-info">复制保存到本地即可</p>\')}X{$(\'.E-F-G\').y(\'<p>没有需要导出的快链</p>\')}});_(\'.P-Q-R-A\').v("w",b(e){e.stopPropagation();8(e&&e.1z)e.1z();X window.event.returnValue=1A;f 1A});_(\'.showAddBox\').v("w",b(e){_(\'.P-Q-R-A\').17=_(\'.P-Q-R-A\').17.replace(" 1B","");_(\'.14\').focus()});_(\'.hideBar\').v("w",b(e){_(\'.P-Q-R-A\').17+=" 1B"});b 1o(o){5 A=o.getAttribute("B-1n");1e(A);L()}',[],100,'|||||var||links|if|||function||push||return|link|hotlinks||obj|lks|9a|length|localStorage|||class|HotLinks|JSON|src|piece|addEventListener|click|text|html||url|data|query|div|import|except|msg|toggle|re|getItem|parse|updateFavorLinks|span|queryLink|value|tool|add|cookie|tooltip|str_url|z_|win|zA|else|for||splice|setItem|stringify|queryName|urlName|show|urlImportButton|className|IsURL|strRegex|new|RegExp|test|label|deleteLocalLink|null|break|hotUrl|innerHTML|content|boxer|title|500|con|delClick|join|FAV_COUNT|urlRecorder|msgView|importModal|modal|values|textarea|name|storage|preventDefault|false|hidden'.split('|'),0,{}))
 
 </script>
 </html>
