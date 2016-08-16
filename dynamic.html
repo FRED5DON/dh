@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Fred、Don|Circle & Cycle & Cisco</title>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+	<meta name="baidu-site-verification" content="VnrS8ZNptl" />
+    <link rel="bookmark" href="/favicon.ico" type="image/x-icon"/>
+    <meta name="description" content="Peronal Page of Freddon"/>
+    <!-- Mobile Specifics -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Mobile Internet Explorer ClearType Technology -->
+    <!--[if IEMobile]>
+    <meta http-equiv="cleartype" content="on">  <![endif]-->
+    <link rel="stylesheet" type="text/css" href="styles/index.css"/>
+</head>
+<body>
+<div class="header"><h3><img src="./images/logo.png" height="27"/>FRED Links<span
+        style="font-size: 10px;padding:6px;color:#999999" class="showAddBox">点击此处添加Cookie快链</span></h3>
+    <!--[if IEMobile]>
+    <span>
+    <iframe name="sinaWeatherTool"
+            src="http://weather.news.sina.com.cn/chajian/iframe/weatherStyle2.html?city=%e5%ae%89%e5%ba%b7" width="200"
+            height="20" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+</span>
+    <![endif]-->
+        <form class="baidu_search_box" action="http://www.baidu.com/baidu" target="_blank">
+            <input name=ie type=hidden value=utf-8><input name=tn type=hidden value='baidu' />
+            <input id="searchText" class="search-bar" autocomplete="off" type="text" name="word">
+            <div id="auto" ></div><input class="search-btn" type="submit" value="百度一下">
+        </form>
+
+
+</div>
+
+<div class="cookieUrl hidden">
+    <input class="urlName" placeholder="这里输入显示名称[选填]"/>
+    <input class="urlRecorder" placeholder="这里可输入需要添加到COOKIE的URL[必填]"/>
+    <div class="urlRecord button">+</div>
+    <div class="hideBar">︽</div>
+</div>
+<div class="msg-view">
+    <div class="msg-view-content"></div>
+</div>
+
+<div class="hotUrl">
+</div>
+<div class="container">
+</div>
+
+<!-- 多说评论框 start -->
+<div class="ds-share flat duoshuo" data-thread-key="FredLinkshome_001" data-title="我的常用Links" data-images=""
+     data-content="常用的链接" data-url="http://www.freddon.com/fredlinks/index.html">
+    <div class="ds-share-inline">
+        <ul class="ds-share-icons-16">
+
+            <li>分享到：</li>
+            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+        </ul>
+        <div class="ds-share-icons-more">
+        </div>
+    </div>
+</div>
+
+<div class="ds-thread duoshuo" data-thread-key="FredLinkshome_001" data-title="首页FredLink"
+     data-url="http://www.freddon.com/index.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    var duoshuoQuery = {short_name: "mlinks"};
+    (function () {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+<div class="content-wrapper-footer">
+    <footer>
+        <p class="credits">&copy; Copyright &copy; 2015.Freddon All rights reserved.<a target="_blank"
+                                                                                       href="http://www.freddon.com/"
+                                                                                       title="freddon">Fred Links</a>
+        </p>
+    </footer>
+</div>
+
+
+</body>
+<script src="http://s1.bdstatic.com/r/www/cache/global/js/BaiduHttps_20150714_zhanzhang.js"></script>
+<script>
+    function checkHttps() {
+        BaiduHttps.useHttps();
+    }
+    function baiduWithHttps(formname) {
+        var data = BaiduHttps.useHttps();
+        if (data.s === 0) {
+            return true;
+        }
+        else {
+            formname.action = 'https://www.baidu.com/baidu' + '?ssl_s=1&ssl_c' + data.ssl_code;
+            return true;
+        }
+    }
+</script>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/acp.js"></script>
+<script src="js/data.js"></script>
+<script src="js/msgview.js"></script>
+<script src="js/geo.js"></script>
+<script>
+
+    function _(label) {
+        var query = document.querySelectorAll(label);
+        if (query && query.length == 1) {
+            return query[0];
+        }
+        return query;
+    }
+
+    var mkLinks = function (links) {
+        var content = [];
+        for (var i = 0; i < links.length; i++) {
+            var block = links[i];
+            var piece = [];
+            piece.push('<div class="content-wrapper">');
+            piece.push('<p class="content-title">' + block.category + '</p>');
+            piece.push('<div class="content">');
+            var lks = [];
+            for (var j = 0; j < block.blocks.length; j++) {
+                var link = block.blocks[j];
+                if (block.blocked != 0) {
+                    lks.push('<div class="boxer"> <div class="boxer-title">' + link.text + '</div>');
+                    lks.push('<div class="boxer-description">');
+                    var l = [];
+                    for (var k = 0; k < link.links.length; k++) {
+                        var lk = link.links[k];
+                        if (!lk.desc) {
+                            lk.desc = lk.text;
+                        }
+                        l.push('<a href="' + lk.href + '" class="link-cell" target="_blank">' + lk.text +
+                                '<span class="link-tips">' + lk.desc + '</span></a>');
+                    }
+                    lks.push(l.join(''));
+                    lks.push('</div></div>');
+                } else {
+                    if (!link.desc) {
+                        link.desc = link.text;
+                    }
+                    lks.push('<div class="boxer boxer-small"> <div class="boxer-description">');
+                    lks.push('<a href="' + link.href + '" class="link-cell" target="_blank">' + link.text +
+                            '<span class="link-tips">' + link.desc + '</span></a></div>');
+                    lks.push('</div>');
+                }
+            }
+
+            piece.push(lks.join(''));
+            piece.push('</div>');
+
+            content.push(piece.join(''));
+            content.push('</div>');
+        }
+        return content;
+    };
+
+    _(".container").innerHTML = mkLinks(links).join('');
+    console.log(_(".container").innerHTML)
+</script>
+<script>
+    var msgView = new UIMsgVew();
+
+    function deleteCookieLink(link) {
+        if (!link) {
+            return;
+        }
+        var hotlinks = localStorage.getItem('HotLinks');
+        var links = null;
+        if (hotlinks) {
+            links = JSON.parse(hotlinks);
+        }
+        if (!links) {
+            return;
+        }
+        for (var i = 0; i < links.length; i++) {
+            if (links[i].src == link) {
+                links.splice(i, 1);
+                i--;
+                break;//暂时不删除同名的
+            }
+        }
+        if (links.length == 0) {
+            localStorage.clear();
+            return;
+        }
+        localStorage.setItem('HotLinks', JSON.stringify(links));
+    }
+
+    function updateFavorLinks() {
+        var hotlinks = localStorage.getItem('HotLinks');
+        var links = null;
+        if (hotlinks) {
+            links = JSON.parse(hotlinks);
+        }
+        _(".hotUrl").innerHTML = "";
+        if (!links || links.length == 0) {
+            return;
+        }
+        var piece = [];
+        piece.push('<div class="content-wrapper">');
+        piece.push('<p class="content-title">本地Cookie热链<span style="font-size: 10px;padding:6px;color:#999999">最多50个</span></p>');
+        piece.push('<div class="content">');
+        var lks = [];
+        for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+            lks.push('<div class="boxer boxer-flexiable"> ');
+            lks.push('<a href="' + link.src + '" class="link-cell" target="_blank">' + (link.text?link.text:link.src) +
+                    '</a><span class="del-link" data-con="' + link.src + '" onclick="javascript:delClick(this);">X</span></div>');
+        }
+        piece.push(lks.join(''));
+        piece.push('</div>');
+        _(".hotUrl").innerHTML = piece.join('');
+
+    }
+    updateFavorLinks();
+    var FAV_COUNT =50;
+    _(".urlRecord.button").addEventListener('click', function () {
+
+        var queryLink = _(".urlRecorder").value;
+        var queryName =  _(".urlName").value;
+        if (!IsURL(queryLink)) {
+            msgView.show("请检查URL是否合法");
+            return;
+        }
+
+        _(".urlRecorder").value = "";
+        _(".urlName").value = "";
+
+        var hotlinks = localStorage.getItem('HotLinks');
+        var obj = [];
+        if (hotlinks) {
+            obj = JSON.parse(hotlinks);
+        }
+
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i].src == queryLink) {
+                obj.splice(i, 1);
+                break;
+            }
+            if (obj[i].text == queryName) {
+               msgView.show("名称已存在，请换一个");
+                return;
+            }
+        }
+        obj[obj.length] = {"text":queryName,"src":queryLink};
+        if (obj.length == FAV_COUNT) {
+            obj.splice(0, 1);
+        }
+        localStorage.setItem('HotLinks', JSON.stringify(obj));
+        updateFavorLinks();
+    });
+
+    _('.cookieUrl').addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (e && e.preventDefault)
+            e.preventDefault();
+        else
+            window.event.returnValue = false;
+        return false;
+    });
+    _('.showAddBox').addEventListener("click", function (e) {
+        /* _('.cookieUrl').className +="hidden";*/
+        _('.cookieUrl').className = _('.cookieUrl').className.replace(" hidden", "");
+        _('.urlName').focus();
+    });
+    _('.hideBar').addEventListener("click", function (e) {
+        _('.cookieUrl').className += " hidden";
+    });
+
+    function delClick(o) {
+        var url = o.getAttribute("data-con");
+        deleteCookieLink(url);
+        updateFavorLinks();
+    }
+
+</script>
+</html>
