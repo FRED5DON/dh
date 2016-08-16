@@ -1,83 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
     <title>Fred、Don|Circle & Cycle & Cisco</title>
     <link rel="shortcut icon" href="/favicon.ico"/>
-	<meta name="baidu-site-verification" content="VnrS8ZNptl" />
+    <meta name="baidu-site-verification" content="VnrS8ZNptl"/>
     <link rel="bookmark" href="/favicon.ico" type="image/x-icon"/>
-    <meta name="description" content="Peronal Page of Freddon"/>
+    <meta name="description" content="Navi Page of Freddon"/>
     <!-- Mobile Specifics -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="true"/>
     <meta name="MobileOptimized" content="320"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <!-- Mobile Internet Explorer ClearType Technology -->
-    <!--[if IEMobile]>
-    <meta http-equiv="cleartype" content="on">  <![endif]-->
-    <link rel="stylesheet" type="text/css" href="styles/index.css"/>
-</head>
-<body>
-<div class="header"><h3><img src="./images/logo.png" height="27"/>FRED Links<span
-        style="font-size: 10px;padding:6px;color:#999999" class="showAddBox">点击此处添加Cookie快链</span></h3>
-    <!--[if IEMobile]>
-    <span>
-    <iframe name="sinaWeatherTool"
-            src="http://weather.news.sina.com.cn/chajian/iframe/weatherStyle2.html?city=%e5%ae%89%e5%ba%b7" width="200"
-            height="20" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
-</span>
+
+    <!-- Bootstrap -->
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <div class="baidu_search_box">
-        <form class="baidu" action="http://www.baidu.com/baidu" target="_blank">
-            <input name=ie type=hidden value="utf-8">
-            <input name=tn type=hidden value="baidu">
-            <input id="searchText" class="search-bar" autocomplete="off" type="text" name="word">
-            <input class="search-btn" type="submit" value="百度一下">
-            <div id="auto"></div>
-        </form>
+    <link href="styles/main.css" rel="stylesheet" type="text/css"/>
+    <!-- Meta Tags -->
+    <style>
+        .mlinks {
+            color: #313131;
+            letter-spacing: 1px;
+            margin-bottom: 2em;
+            font-size: 16px;
+        }
+
+        .mlinks input, .mlinks button {
+            outline: none;
+            margin-right: 10px;
+            height: 32px;
+        }
+
+        .mlinks .tooltip {
+            display: inline-block;
+            width: auto;
+            height: auto;
+            word-break: keep-all;
+            word-wrap: normal;
+        }
+
+        p.content-title {
+            width: auto;
+            position: relative;
+        }
+
+        p.content-title:after {
+            display: block;
+            content: '';
+            width: 100px;
+            height: 1px;
+            color: gray;
+            background: lightgray;
+            margin-top: 6px;
+        }
+
+        .boxer-title, .hotUrl {
+            margin-bottom: 10px;
+        }
+
+        .boxer-title:before {
+            content: '|';
+            width: 2px;
+            height: 12px;
+            color: #ff4b44;
+            margin-right: 4px;
+            background: #ff4b44;
+
+        }
+
+        .content-wrapper {
+            clear: both;
+        }
+
+        .content-wrapper .block {
+            height: 12em;
+        }
+
+        .content-wrapper a {
+            display: inline-block;
+            cursor: pointer;
+            color: #3f3f3f;
+            word-break: keep-all;
+            word-wrap: normal;
+            text-decoration: none;
+            position: relative;
+            margin-right: 10px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .content-wrapper .block a:hover {
+            font-weight: bold;
+            margin-right: 2px;
+            text-decoration: none;
+        }
+
+        .content-wrapper .block a:hover::before {
+            content: "\5B";
+        }
+
+        .content-wrapper .block a:hover::after {
+            content: "\5D";
+        }
+
+        .tool-add-cookie-url {
+            margin-bottom: 10px;
+        }
+
+        .tool-add-cookie-url div {
+            display: inline-block;
+        }
+
+        .local-links {
+            padding: 4px;
+            display: inline-block;
+            font-size: 14px;
+            margin-right: 1em;
+            margin-bottom: 4px;
+        }
+
+        .local-links:hover span {
+            visibility: visible;
+        }
+
+        .local-links span {
+            visibility: hidden;
+            color: gray;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        .baidu_search_box {
+            margin-bottom: 6px;
+        }
+
+        .baidu_search_box form .form-group div {
+            padding: 0;
+        }
+
+        .baidu_search_box .search-bar {
+            border-right-width: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .baidu_search_box input[type='submit'] {
+            border-left-width: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .baidu_search_box .search-bar:focus {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        div#auto {
+            border: 1px solid silver;
+            border-top-width: 0;
+            display: none;
+        }
+
+        .header {
+            margin-bottom: 6px;
+        }
+
+        .header .baidu_search_box {
+            display: block;
+            z-index: 10;
+            background: #FFFFFF;
+            position: absolute;
+            right: 12px;
+            top: 16px;
+        }
+    </style>
+
+</head>
+<body class="decii theme-normal">
+<div class="container mlinks">
+
+    <div class="row">
+
+        <div class="header col-md-10 col-md-offset-1 container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Local Links<span style="font-size: 10px;padding:6px;color:#999999" class="showAddBox">点击此处添加Local快链</span>
+                    </h3>
+                </div>
+                <div class="baidu_search_box">
+                    <form class="baidu pull-right" class="form-horizontal" action="http://www.baidu.com/baidu"
+                          target="_blank">
+                        <div class="form-group">
+                            <div class="col-sm-8">
+                                <input name=ie type=hidden value="utf-8">
+                                <input name=tn type=hidden value="baidu">
+                                <input id="searchText" class="form-control search-bar" autocomplete="off" type="search"
+                                       name="word">
+                                <div id="auto"></div>
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="search-btn btn btn-info form-control " type="submit" value="百度一下">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tool-add-cookie-url hidden col-md-10 col-md-offset-1 row">
+            <input class="urlName col-md-2" placeholder="这里输入显示名称[选填]"/>
+            <input class="urlRecorder col-md-5" placeholder="这里可输入需要添加到本地的URL[必填]"/>
+            <button class="btn btn-info urlRecord button"><span class="glyphicon glyphicon-plus"
+                                                                aria-hidden="true"></span>添加
+            </button>
+            <button class="btn btn-warning urlImport" data-toggle="modal" data-target="#importModal"><span
+                        class="glyphicon glyphicon-save" aria-hidden="true"></span>导入
+            </button>
+            <button class="btn btn-success urlExport" data-toggle="modal" data-target="#importModal"><span
+                        class="glyphicon glyphicon-upload" aria-hidden="true"></span>导出
+            </button>
+            <button class="btn btn-normal hideBar"><span class="glyphicon glyphicon-chevron-up"
+                                                         aria-hidden="true"></span>取消
+            </button>
+
+        </div>
+
+
+        <div class="hotUrl col-md-10 col-md-offset-1">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid col-md-10 col-md-offset-1"><p class="content-title">IT技术</p><div class="row content-wrapper"><div class="col-md-3 block"><div class="boxer-title">官方API文档</div><div class="boxer-description"><a href="https://developer.apple.com/library/ios/navigation/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">ios官方文档</a><a href="https://msdn.microsoft.com/library/windows/apps/bg124285.aspx"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">uwp文档</a><a href="http://www.goodxyx.com/tool/jqchm.html"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">jQuery在线速查</a><a href="http://www.w3school.com.cn"class="link-cell"data-toggle="tooltip"title="初学者的编程语言天堂"data-placement="bottom"target="_blank">w3school</a><a href="http://developer.baidu.com/map/index.php?title=lbscloud"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">百度LBS</a><a href="http://www.52ij.com/jishu/4241.html"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">Cocos2d-html</a><a href="https://www.sdk.cn/services"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">开发者免费API</a><a href="http://www.w3cplus.com/sassguide/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">SASS入门</a></div></div><div class="col-md-3 block"><div class="boxer-title">博客ers</div><div class="boxer-description"><a href="http://www.yczmm.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">大风博客</a><a href="http://blog.csdn.net/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">CSDN博客</a><a href="http://my.oschina.net/freddon"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">我的博客</a></div></div><div class="col-md-3 block"><div class="boxer-title">技术社区</div><div class="boxer-description"><a href="http://stackoverflow.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">Stack Overflow</a><a href="http://bbs.dospy.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">dospy</a><a href="http://www.wfun.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">智机网</a><a href="http://www.devdiv.com/forum.php"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">DevDiv开发论坛</a><a href="http://bbs.pcbeta.com/"class="link-cell"data-toggle="tooltip"title="黑苹果白苹果折腾社区"data-placement="bottom"target="_blank">远景论坛</a></div></div><div class="col-md-3 block"><div class="boxer-title">在线学院</div><div class="boxer-description"><a href="https://mva.microsoft.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">微软学院</a><a href="http://edu.51cto.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">51CTO</a><a href="http://edu.csdn.net/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">CSDN学院</a><a href="http://www.jikexueyuan.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">极客学院</a><a href="http://acm.nyist.net/JudgeOnline/problemset.php"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">算法在线评测</a><a href="https://www.shiyanlou.com/"class="link-cell"data-toggle="tooltip"title="专业的IT在线实训平台"data-placement="bottom"target="_blank">实验楼</a></div></div><div class="col-md-3 block"><div class="boxer-title">UI素材</div><div class="boxer-description"><a href="http://www.58pic.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">58pic</a><a href="http://www.cssmoban.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">模版之家</a><a href="http://huaban.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">花瓣网</a><a href="http://iconfont.cn/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">阿里矢量图</a><a href="http://www.easyicon.net/"class="link-cell"data-toggle="tooltip"title="图标下载"data-placement="bottom"target="_blank">EasyIcon</a><a href="http://www.ke01.com/forum-57-1.html"class="link-cell"data-toggle="tooltip"title="HTML5网站模板、教程、jquery特效、网站源码等资源"data-placement="bottom"target="_blank">科蚁网</a></div></div><div class="col-md-3 block"><div class="boxer-title">在线工具</div><div class="boxer-description"><a href="http://www.bejson.com"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">bejson在线工具</a><a href="http://www.atool.org/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">ATOOL在线工具</a><a href="http://www.bitbug.net/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">在线ico转换</a><a href="http://cli.im/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">草料二维码</a></div></div><div class="col-md-3 block"><div class="boxer-title">WEB框架</div><div class="boxer-description"><a href="http://extjs.org.cn/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">Extjs</a><a href="http://webix.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">webix框架</a><a href="http://furtive.co/"class="link-cell"data-toggle="tooltip"title="针对手机端"data-placement="bottom"target="_blank">furtive</a><a href="http://materializecss.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">materialize</a></div></div><div class="col-md-3 block"><div class="boxer-title">android框架</div><div class="boxer-description"><a href="https://github.com/square/retrofit"class="link-cell"data-toggle="tooltip"title="EventBus"data-placement="bottom"target="_blank">Retrofit</a><a href="https://github.com/square/okhttp"class="link-cell"data-toggle="tooltip"title="网络模块包"data-placement="bottom"target="_blank">okhttp</a><a href="https://github.com/JakeWharton/butterknife"class="link-cell"data-toggle="tooltip"title="视图控件自动化绑定"data-placement="bottom"target="_blank">ButterKnife</a><a href="https://github.com/wyouflf/xUtils"class="link-cell"data-toggle="tooltip"title="视图控件自动化绑定、http异步、位图处理"data-placement="bottom"target="_blank">xUtils</a><a href="http://nineoldandroids.com/"class="link-cell"data-toggle="tooltip"title="动画效果库"data-placement="bottom"target="_blank">nineoldandroids</a><a href="http://www.umeng.com/"class="link-cell"data-toggle="tooltip"title="免费的应用统计分析、社交分享、消息推送、自动更新、在线参数、移动推广效果分析、微社区等app开发和运营解决方案"data-placement="bottom"target="_blank">Umeng</a><a href="https://github.com/yanchenko/droidparts/"class="link-cell"data-toggle="tooltip"title="DAO、实体类注解创建表"data-placement="bottom"target="_blank">DroidParts</a></div></div><div class="col-md-3 block"><div class="boxer-title">资源下载</div><div class="boxer-description"><a href="http://msdn.itellyou.cn/"class="link-cell"data-toggle="tooltip"title="纯净工具、微软资源下载站"data-placement="bottom"target="_blank">MSDN itellyou</a><a href="http://yun.baidu.com/share/home?uk=3560277524#category/type=0"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">编程教学视频</a><a href="http://www.androiddevtools.cn/"class="link-cell"data-toggle="tooltip"title="收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。"data-placement="bottom"target="_blank">androiddevtools</a></div></div><div class="col-md-3 block"><div class="boxer-title">IT资讯</div><div class="boxer-description"><a href="http://www.cnbeta.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">Cnbeta</a><a href="http://www.ithome.com/"class="link-cell"data-toggle="tooltip"title="国内顶级IT科技门户网站"data-placement="bottom"target="_blank">IT之家</a><a href="http://cn.engadget.com/"class="link-cell"data-toggle="tooltip"title="掌握最新消费性电子产品消息"data-placement="bottom"target="_blank">瘾科技</a></div></div></div><p class="content-title">有趣</p><div class="row content-wrapper"><div class="col-md-3 block"><div class="boxer-title">灵感</div><div class="boxer-description"><a href="http://www.boredpanda.com/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">BoredPanda</a><a href="http://www.awwwards.com/"class="link-cell"data-toggle="tooltip"title="THE AWWWARDS THAT RECOGNIZE THE TALENT AND EFFORT OF THE BEST WEB DESIGNERS IN THE WORLD"data-placement="bottom"target="_blank">Awwwards</a><a href="http://www.siteinspire.com/"class="link-cell"data-toggle="tooltip"title="网站收集地"data-placement="bottom"target="_blank">siteinspire</a><a href="https://dribbble.com/"class="link-cell"data-toggle="tooltip"title="面向创作家、艺术工作者、设计师等创意类作品的人群，提供作品在线服务，供网友在线查看已经完成的作品或者正在创作的作品的交流网站"data-placement="bottom"target="_blank">dribbble</a><a href="http://idea.zcool.com.cn/"class="link-cell"data-toggle="tooltip"title=""data-placement="bottom"target="_blank">Zcool搜灵感</a><a href="http://www.thisiswhyimbroke.com/"class="link-cell"data-toggle="tooltip"title="没有买不到只有想不到"data-placement="bottom"target="_blank">新奇众筹</a></div></div><div class="col-md-3 block"><div class="boxer-title">80记忆</div><div class="boxer-description"><a href="http://pan.baidu.com/s/1c1fBXw0"class="link-cell"data-toggle="tooltip"title="文曲星NC1020模拟器+游戏bin，提取密码 bp3y "data-placement="bottom"target="_blank">文曲星NC1020模拟器</a><a href="http://www.mgmud.com/"class="link-cell"data-toggle="tooltip"title="手机版黄金英雄坛说android、java"data-placement="bottom"target="_blank">英雄坛说</a><a href="http://pan.baidu.com/s/1o7eBCiY"class="link-cell"data-toggle="tooltip"title="步步高电子词典模伏魔记，提取密码 f2qy "data-placement="bottom"target="_blank">伏魔记模拟器</a></div></div><div class="col-md-3 block"><div class="boxer-title">游戏试玩</div><div class="boxer-description"><a href="http://www.pceggs.com/i.aspx?c=1-11916679"class="link-cell"data-toggle="tooltip"title="试玩玩游戏赚钱"data-placement="bottom"target="_blank">PCeggs</a><a href="http://sw.fenxiangzhuan.cn/page/activity/201509/Share0915.aspx?uid=11916679"class="link-cell"data-toggle="tooltip"title="手机做任务赚钱"data-placement="bottom"target="_blank">蛋蛋赚</a></div></div></div><p class="content-title">友情链接</p><div class="row content-wrapper"><div class="col-md-2 col-sm-2"><div class="boxer-description"><a href="' + link.href + '"class="link-cell"data-toggle="tooltip"title="手机做任务赚钱"data-placement="bottom"target="_blank">大风的博客</a></div></div><div class="col-md-2 col-sm-2"><div class="boxer-description"><a href="' + link.href + '"class="link-cell"data-toggle="tooltip"title="手机做任务赚钱"data-placement="bottom"target="_blank">IT宝盒</a></div></div><div class="col-md-2 col-sm-2"><div class="boxer-description"><a href="' + link.href + '"class="link-cell"data-toggle="tooltip"title="手机做任务赚钱"data-placement="bottom"target="_blank">Freddon博客</a></div></div><div class="col-md-2 col-sm-2"><div class="boxer-description"><a href="' + link.href + '"class="link-cell"data-toggle="tooltip"title="手机做任务赚钱"data-placement="bottom"target="_blank">西米主页</a></div></div></div></div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="header col-md-10 col-md-offset-1">
+            <!-- 多说评论框 start -->
+            <div class="ds-share flat duoshuo" data-thread-key="FredLinkshome_001" data-title="我的常用Links" data-images=""
+                 data-content="常用的链接" data-url="http://www.freddon.com/fredlinks/index.html">
+                <div class="ds-share-inline">
+                    <ul class="ds-share-icons-16">
+
+                        <li>分享到：</li>
+                        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+                        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+                        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+                    </ul>
+                    <div class="ds-share-icons-more">
+                    </div>
+                </div>
+            </div>
+
+            <div class="ds-thread duoshuo" data-thread-key="FredLinkshome_001" data-title="首页FredLink"
+                 data-url="http://www.freddon.com/index.html"></div>
+        </div>
     </div>
 
 </div>
 
-<div class="cookieUrl hidden">
-    <input class="urlName" placeholder="这里输入显示名称[选填]"/>
-    <input class="urlRecorder" placeholder="这里可输入需要添加到COOKIE的URL[必填]"/>
-    <div class="urlRecord button">+</div>
-    <div class="hideBar">︽</div>
-</div>
-<div class="msg-view">
-    <div class="msg-view-content"></div>
-</div>
 
-<div class="hotUrl">
-</div>
-<div class="container">
-<div class="content-wrapper"><p class="content-title">IT技术</p><div class="content"><div class="boxer"> <div class="boxer-title">官方API文档</div><div class="boxer-description"><a href="https://developer.apple.com/library/ios/navigation/" class="link-cell" target="_blank">ios官方文档<span class="link-tips">ios官方文档</span></a><a href="https://msdn.microsoft.com/library/windows/apps/bg124285.aspx" class="link-cell" target="_blank">uwp文档<span class="link-tips">uwp文档</span></a><a href="http://www.goodxyx.com/tool/jqchm.html" class="link-cell" target="_blank">jQuery在线速查<span class="link-tips">jQuery在线速查</span></a><a href="http://www.w3school.com.cn" class="link-cell" target="_blank">w3school<span class="link-tips">初学者的编程语言天堂</span></a><a href="http://developer.baidu.com/map/index.php?title=lbscloud" class="link-cell" target="_blank">百度LBS<span class="link-tips">百度LBS</span></a><a href="http://www.52ij.com/jishu/4241.html" class="link-cell" target="_blank">Cocos2d-html<span class="link-tips">Cocos2d-html</span></a><a href="https://www.sdk.cn/services" class="link-cell" target="_blank">开发者免费API<span class="link-tips">开发者免费API</span></a><a href="http://www.w3cplus.com/sassguide/" class="link-cell" target="_blank">SASS入门<span class="link-tips">SASS入门</span></a></div></div><div class="boxer"> <div class="boxer-title">博客ers</div><div class="boxer-description"><a href="http://www.yczmm.com/" class="link-cell" target="_blank">大风博客<span class="link-tips">大风博客</span></a><a href="http://blog.csdn.net/" class="link-cell" target="_blank">CSDN博客<span class="link-tips">CSDN博客</span></a><a href="http://my.oschina.net/freddon" class="link-cell" target="_blank">我的博客<span class="link-tips">我的博客</span></a></div></div><div class="boxer"> <div class="boxer-title">技术社区</div><div class="boxer-description"><a href="http://stackoverflow.com/" class="link-cell" target="_blank">Stack Overflow<span class="link-tips">Stack Overflow</span></a><a href="http://bbs.dospy.com/" class="link-cell" target="_blank">dospy<span class="link-tips">dospy</span></a><a href="http://www.wfun.com/" class="link-cell" target="_blank">智机网<span class="link-tips">智机网</span></a><a href="http://www.devdiv.com/forum.php" class="link-cell" target="_blank">DevDiv开发论坛<span class="link-tips">DevDiv开发论坛</span></a><a href="http://bbs.pcbeta.com/" class="link-cell" target="_blank">远景论坛<span class="link-tips">黑苹果白苹果折腾社区</span></a></div></div><div class="boxer"> <div class="boxer-title">在线学院</div><div class="boxer-description"><a href="https://mva.microsoft.com/" class="link-cell" target="_blank">微软学院<span class="link-tips">微软学院</span></a><a href="http://edu.51cto.com/" class="link-cell" target="_blank">51CTO<span class="link-tips">51CTO</span></a><a href="http://edu.csdn.net/" class="link-cell" target="_blank">CSDN学院<span class="link-tips">CSDN学院</span></a><a href="http://www.jikexueyuan.com/" class="link-cell" target="_blank">极客学院<span class="link-tips">极客学院</span></a><a href="http://acm.nyist.net/JudgeOnline/problemset.php" class="link-cell" target="_blank">算法在线评测<span class="link-tips">算法在线评测</span></a><a href="https://www.shiyanlou.com/" class="link-cell" target="_blank">实验楼<span class="link-tips">专业的IT在线实训平台</span></a></div></div><div class="boxer"> <div class="boxer-title">UI素材</div><div class="boxer-description"><a href="http://www.58pic.com/" class="link-cell" target="_blank">58pic<span class="link-tips">58pic</span></a><a href="http://www.cssmoban.com/" class="link-cell" target="_blank">模版之家<span class="link-tips">模版之家</span></a><a href="http://huaban.com/" class="link-cell" target="_blank">花瓣网<span class="link-tips">花瓣网</span></a><a href="http://iconfont.cn/" class="link-cell" target="_blank">阿里矢量图<span class="link-tips">阿里矢量图</span></a><a href="http://www.easyicon.net/" class="link-cell" target="_blank">EasyIcon<span class="link-tips">图标下载</span></a><a href="http://www.ke01.com/forum-57-1.html" class="link-cell" target="_blank">科蚁网<span class="link-tips">HTML5网站模板、教程、jquery特效、网站源码等资源</span></a></div></div><div class="boxer"> <div class="boxer-title">在线工具</div><div class="boxer-description"><a href="http://www.bejson.com" class="link-cell" target="_blank">bejson在线工具<span class="link-tips">bejson在线工具</span></a><a href="http://www.atool.org/" class="link-cell" target="_blank">ATOOL在线工具<span class="link-tips">ATOOL在线工具</span></a><a href="http://www.bitbug.net/" class="link-cell" target="_blank">在线ico转换<span class="link-tips">在线ico转换</span></a><a href="http://cli.im/" class="link-cell" target="_blank">草料二维码<span class="link-tips">草料二维码</span></a></div></div><div class="boxer"> <div class="boxer-title">WEB框架</div><div class="boxer-description"><a href="http://extjs.org.cn/" class="link-cell" target="_blank">Extjs<span class="link-tips">Extjs</span></a><a href="http://webix.com/" class="link-cell" target="_blank">webix框架<span class="link-tips">webix框架</span></a><a href="http://furtive.co/" class="link-cell" target="_blank">furtive<span class="link-tips">针对手机端</span></a><a href="http://materializecss.com/" class="link-cell" target="_blank">materialize<span class="link-tips">materialize</span></a></div></div><div class="boxer"> <div class="boxer-title">android框架</div><div class="boxer-description"><a href="https://github.com/square/retrofit" class="link-cell" target="_blank">Retrofit<span class="link-tips">EventBus</span></a><a href="https://github.com/square/okhttp" class="link-cell" target="_blank">okhttp<span class="link-tips">网络模块包</span></a><a href="https://github.com/JakeWharton/butterknife" class="link-cell" target="_blank">ButterKnife<span class="link-tips">视图控件自动化绑定</span></a><a href="https://github.com/wyouflf/xUtils" class="link-cell" target="_blank">xUtils<span class="link-tips">视图控件自动化绑定、http异步、位图处理</span></a><a href="http://nineoldandroids.com/" class="link-cell" target="_blank">nineoldandroids<span class="link-tips">动画效果库</span></a><a href="http://www.umeng.com/" class="link-cell" target="_blank">Umeng<span class="link-tips">免费的应用统计分析、社交分享、消息推送、自动更新、在线参数、移动推广效果分析、微社区等app开发和运营解决方案</span></a><a href="https://github.com/yanchenko/droidparts/" class="link-cell" target="_blank">DroidParts<span class="link-tips">DAO、实体类注解创建表</span></a></div></div><div class="boxer"> <div class="boxer-title">资源下载</div><div class="boxer-description"><a href="http://msdn.itellyou.cn/" class="link-cell" target="_blank">MSDN itellyou<span class="link-tips">纯净工具、微软资源下载站</span></a><a href="http://yun.baidu.com/share/home?uk=3560277524#category/type=0" class="link-cell" target="_blank">编程教学视频<span class="link-tips">编程教学视频</span></a><a href="http://www.androiddevtools.cn/" class="link-cell" target="_blank">androiddevtools<span class="link-tips">收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。</span></a></div></div><div class="boxer"> <div class="boxer-title">IT资讯</div><div class="boxer-description"><a href="http://www.cnbeta.com/" class="link-cell" target="_blank">Cnbeta<span class="link-tips">Cnbeta</span></a><a href="http://www.ithome.com/" class="link-cell" target="_blank">IT之家<span class="link-tips">国内顶级IT科技门户网站</span></a><a href="http://cn.engadget.com/" class="link-cell" target="_blank">瘾科技<span class="link-tips">掌握最新消费性电子产品消息</span></a></div></div></div></div><div class="content-wrapper"><p class="content-title">有趣</p><div class="content"><div class="boxer"> <div class="boxer-title">灵感</div><div class="boxer-description"><a href="http://www.boredpanda.com/" class="link-cell" target="_blank">BoredPanda<span class="link-tips">BoredPanda</span></a><a href="http://www.awwwards.com/" class="link-cell" target="_blank">Awwwards<span class="link-tips">THE AWWWARDS THAT RECOGNIZE THE TALENT AND EFFORT OF THE BEST WEB DESIGNERS IN THE WORLD</span></a><a href="http://www.siteinspire.com/" class="link-cell" target="_blank">siteinspire<span class="link-tips">网站收集地</span></a><a href="https://dribbble.com/" class="link-cell" target="_blank">dribbble<span class="link-tips">面向创作家、艺术工作者、设计师等创意类作品的人群，提供作品在线服务，供网友在线查看已经完成的作品或者正在创作的作品的交流网站</span></a><a href="http://idea.zcool.com.cn/" class="link-cell" target="_blank">Zcool搜灵感<span class="link-tips">Zcool搜灵感</span></a><a href="http://www.thisiswhyimbroke.com/" class="link-cell" target="_blank">新奇众筹<span class="link-tips">没有买不到只有想不到</span></a></div></div><div class="boxer"> <div class="boxer-title">80记忆</div><div class="boxer-description"><a href="http://pan.baidu.com/s/1c1fBXw0" class="link-cell" target="_blank">文曲星NC1020模拟器<span class="link-tips">文曲星NC1020模拟器+游戏bin，提取密码 bp3y </span></a><a href="http://www.mgmud.com/" class="link-cell" target="_blank">英雄坛说<span class="link-tips">手机版黄金英雄坛说android、java</span></a><a href="http://pan.baidu.com/s/1o7eBCiY" class="link-cell" target="_blank">伏魔记模拟器<span class="link-tips">步步高电子词典模伏魔记，提取密码 f2qy </span></a></div></div><div class="boxer"> <div class="boxer-title">游戏试玩</div><div class="boxer-description"><a href="http://www.pceggs.com/i.aspx?c=1-11916679" class="link-cell" target="_blank">PCeggs<span class="link-tips">试玩玩游戏赚钱</span></a><a href="http://sw.fenxiangzhuan.cn/page/activity/201509/Share0915.aspx?uid=11916679" class="link-cell" target="_blank">蛋蛋赚<span class="link-tips">手机做任务赚钱</span></a></div></div></div></div><div class="content-wrapper"><p class="content-title">友情链接</p><div class="content"><div class="boxer boxer-small"> <div class="boxer-description"><a href="http://www.yczmm.com/" class="link-cell" target="_blank">大风的博客<span class="link-tips">大风的博客</span></a></div></div><div class="boxer boxer-small"> <div class="boxer-description"><a href="http://www.itbaohe.com/" class="link-cell" target="_blank">IT宝盒<span class="link-tips">IT宝盒</span></a></div></div><div class="boxer boxer-small"> <div class="boxer-description"><a href="http://my.oschina.net/freddon" class="link-cell" target="_blank">Freddon博客<span class="link-tips">Freddon博客</span></a></div></div><div class="boxer boxer-small"> <div class="boxer-description"><a href="https://www.sagosoft.com/" class="link-cell" target="_blank">西米主页<span class="link-tips">Fred 主页</span></a></div></div></div></div>
-</div>
-
-<!-- 多说评论框 start -->
-<div class="ds-share flat duoshuo" data-thread-key="FredLinkshome_001" data-title="我的常用Links" data-images=""
-     data-content="常用的链接" data-url="http://www.freddon.com/fredlinks/index.html">
-    <div class="ds-share-inline">
-        <ul class="ds-share-icons-16">
-
-            <li>分享到：</li>
-            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-        </ul>
-        <div class="ds-share-icons-more">
+<!-- Modal -->
+<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">导入/导出 Local Links</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <textarea name="links-storage" class="form-control" rows="10"
+                                          placeholder="在此粘贴本站导出的Local快链格式"
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="import-except-msg"></span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary urlImportButton">确定</button>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="ds-thread duoshuo" data-thread-key="FredLinkshome_001" data-title="首页FredLink"
-     data-url="http://www.freddon.com/index.html"></div>
+
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -104,13 +338,58 @@
     </footer>
 </div>
 
-
-</body>
 <script src="js/jQuery-2.1.4.min.js"></script>
-<script src="js/acp.js"></script>
-<script src="js/msgview.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script type="text/javascript" src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+<script>
+    eval(function (p, a, c, k, e, r) {
+        e = function (c) {
+            return (c < 62 ? '' : e(parseInt(c / 62))) + ((c = c % 62) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+        };
+        if ('0'.replace(0, e) == 0) {
+            while (c--)r[e(c)] = k[c];
+            k = [function (e) {
+                return r[e] || e
+            }];
+            e = function () {
+                return '[24-79a-df-hj-oqru-zA-Z]'
+            };
+            c = 1
+        }
+        ;
+        while (c--)if (k[c])p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+        return p
+    }('4 D=\'\';7 E(){4 q=$("#c").r();6(q==null||q==""){$("#9").F();$("#9").h();G}D=q;w.H="请求中";4 I={\'wd\':q,\'p\':\'3\',\'cb\':\'J\',\'t\':new Date().getMilliseconds().toString()};$.ajax({async:K,url:"http://suggestion.L.com/su",type:"GET",dataType:\'M\',M:\'jsoncallback\',data:I,timeout:5000,success:7(json){},error:7(xhr){}})}7 J(N){O(N);w.H="请求结束"}7 O(P){4 u=P[\'s\'];4 d=$("#9");6(u.m==0){d.h();G K}d.F();for(4 i=0;i<u.m;i++){4 Q=u[i];4 n=$("<j>").A("B",i);n.A("style","font:14px/R arial;height:R;padding:0 8px;cursor: pointer;");n.html(Q).appendTo(d);n.mouseover(7(){6(2!=-1){d.v("j").b(2).f("k-l","x")}2=$(C).A("B");$(C).f("k-l","#f0f0f0")});n.mouseout(7(){$(C).f("k-l","x")});n.S(7(){4 g=d.h().v("j").b(2).y();2=-1;$("#c").r(g)});6(u.m>0){d.show();$("#9 j").S(7(){$(\'form.L\').submit()})}o{d.h();2=-1}}}4 timeoutId;4 2=-1;$(7(){$("#c").keyup(7(z){4 T=z||w.z;4 5=T.5;6(5>=65&&5<=90||5>=48&&5<=57||5>=96&&5<=111||5>=186&&5<=222||5==8||5==46||5==32||5==13){E();6(2!=-1){2=-1}}o 6(5==U||5==V){6(5==U){4 a=$("#9").v("j");6(2!=-1){a.b(2).f("k-l","x");2--}o{2=a.m-1}6(2==-1){2=a.m-1}a.b(2).f("k-l","#W");4 g=a.b(2).y();$("#c").r(g)}6(5==V){4 a=$("#9").v("j");6(2!=-1){a.b(2).f("k-l","x")}2++;6(2==a.m){2=0}a.b(2).f("k-l","#W");4 g=a.b(2).y();$("#c").r(g)}}o 6(5==13){6(2!=-1){4 g=$("#9").h().v("j").b(2).y();2=-1;$("#c").r(g)}o{$("#9").h();$("#c").get(0).blur()}}o 6(5==27){6($("#9").X(":Y")){$("#9").h()}}});document.onclick=7(e){4 e=e?e:w.z;4 Z=e.srcElement||e.target;6(Z.B!="c"){6($("#9").X(":Y")){$("#9").f("display","none")}}}});', [], 62, '||highlightindex||var|keyCode|if|function||auto|autoNodes|eq|searchText|autoNode||css|comText|hide||div|background|color|length|newDivNode|else||strdomin|val|||Info|children|window|white|text|event|attr|id|this|changeStr|FillUrls|empty|return|status|qsData|ShowDiv|false|baidu|jsonp|strurls|autoDisplay|autoStr|wordNode|25px|click|myEvent|38|40|ebebeb|is|visible|tar'.split('|'), 0, {}))
+</script>
 <script>
 
+    $(function () {
+        $("[data-toggle='tooltip']").tooltip();
+    });
+    function IsURL(str_url) {
+        var strRegex = '^((https|http|ftp|rtsp|mms)?://)' + '?(([0-9a-z_!~*\'().&=+win%-]+: )?[0-9a-z_!~*\'().&=+win%-]+@)?' //ftp的user
+                + '(([0-9]{1,3}.){3}[0-9]{1,3}' // IP形式的URL- 199.194.52.184
+                + '|' // 允许IP和DOMAIN（域名）
+                + '([0-9a-z_!~*\'()-]+.)*' // 域名- www.
+                + '([0-9a-z][0-9a-z-]{0,61})?[0-9a-z].' // 二级域名
+                + '[a-z]{2,6})' // first level domain- .com or .museum
+                + '(:[0-9]{1,4})?' // 端口- :80
+                + '((/?)|' // a slash isn't required if there is no file name
+                + '(/[0-9a-zA-Z_!~*\'().;?:@&=+win,%#-]+)+/?)$';
+        var re = new RegExp(strRegex);
+        //re.test()
+        if (re.test(str_url)) {
+            return 1;
+        } else {
+            re = new RegExp("file:///[c-zC-Z]:(//([0-9a-zA-Z]+))+|(/([0-9a-zA-Z]+))+");
+            if (re.test(str_url)) {
+                return 1;
+            }
+            return 1;
+        }
+    }
     function _(label) {
         var query = document.querySelectorAll(label);
         if (query && query.length == 1) {
@@ -118,14 +397,9 @@
         }
         return query;
     }
-
-
-
 </script>
 <script>
-    var msgView = new UIMsgVew();
-
-    function deleteCookieLink(link) {
+    function deleteLocalLink(link) {
         if (!link) {
             return;
         }
@@ -163,14 +437,19 @@
         }
         var piece = [];
         piece.push('<div class="content-wrapper">');
-        piece.push('<p class="content-title">本地Cookie热链<span style="font-size: 10px;padding:6px;color:#999999">最多50个</span></p>');
+        piece.push('<p class="boxer-title">本地Local热链<span style="font-size: 10px;padding:6px;color:#999999">最多500个</span></p>');
         piece.push('<div class="content">');
         var lks = [];
         for (var i = 0; i < links.length; i++) {
             var link = links[i];
-            lks.push('<div class="boxer boxer-flexiable"> ');
-            lks.push('<a href="' + link.src + '" class="link-cell" target="_blank">' + (link.text?link.text:link.src) +
-                    '</a><span class="del-link" data-con="' + link.src + '" onclick="javascript:delClick(this);">X</span></div>');
+            lks.push('<div class="boxer-description local-links"> ');
+            lks.push('<a href="' + link.src + '" class="link-cell"');
+            lks.push('data-toggle="tooltip"');
+            lks.push('title="' + link.src + '"');
+            lks.push('data-placement="bottom"');
+            lks.push('target="_blank">' + (link.text ? link.text : link.src) + '</a>');
+            lks.push('<span class="del-link" data-con="' + link.src + '" onclick="javascript:delClick(this);">删除</span>');
+            lks.push('</div>');
         }
         piece.push(lks.join(''));
         piece.push('</div>');
@@ -178,11 +457,11 @@
 
     }
     updateFavorLinks();
-    var FAV_COUNT =50;
+    var FAV_COUNT = '500';
     _(".urlRecord.button").addEventListener('click', function () {
 
         var queryLink = _(".urlRecorder").value;
-        var queryName =  _(".urlName").value;
+        var queryName = _(".urlName").value;
         if (!IsURL(queryLink)) {
             msgView.show("请检查URL是否合法");
             return;
@@ -203,19 +482,45 @@
                 break;
             }
             if (obj[i].text == queryName) {
-               msgView.show("名称已存在，请换一个");
+                msgView.show("名称已存在，请换一个");
                 return;
             }
         }
-        obj[obj.length] = {"text":queryName,"src":queryLink};
+        obj[obj.length] = {"text": queryName, "src": queryLink};
         if (obj.length == FAV_COUNT) {
             obj.splice(0, 1);
         }
         localStorage.setItem('HotLinks', JSON.stringify(obj));
         updateFavorLinks();
     });
-
-    _('.cookieUrl').addEventListener("click", function (e) {
+    _('.urlImport').addEventListener("click", function (e) {
+        $('#importModal').modal('toggle');
+        $('.urlImportButton').show();
+        $('.import-except-msg').html('');
+    });
+    _('.urlImportButton').addEventListener("click", function (e) {
+        var values = $('textarea[name="links-storage"]').val();
+        try {
+            var links = JSON.parse(values);
+            localStorage.setItem('HotLinks', JSON.stringify(links));
+            $('.import-except-msg').html('');
+            location.reload();
+        } catch (e) {
+            $('.import-except-msg').html('<p class="text-success">格式错误，无法导入</p>');
+        }
+    });
+    _('.urlExport').addEventListener("click", function (e) {
+        $('#importModal').modal('toggle');
+        $('.urlImportButton').hide();
+        var hotlinks = localStorage.getItem('HotLinks');
+        if (hotlinks) {
+            $('textarea[name="links-storage"]').html(hotlinks);
+            $('.import-except-msg').html('<p class="text-info">复制保存到本地即可</p>');
+        } else {
+            $('.import-except-msg').html('<p>没有需要导出的快链</p>');
+        }
+    });
+    _('.tool-add-cookie-url').addEventListener("click", function (e) {
         e.stopPropagation();
         if (e && e.preventDefault)
             e.preventDefault();
@@ -224,17 +529,17 @@
         return false;
     });
     _('.showAddBox').addEventListener("click", function (e) {
-        /* _('.cookieUrl').className +="hidden";*/
-        _('.cookieUrl').className = _('.cookieUrl').className.replace(" hidden", "");
+        /* _('.tool-add-cookie-url').className +="hidden";*/
+        _('.tool-add-cookie-url').className = _('.tool-add-cookie-url').className.replace(" hidden", "");
         _('.urlName').focus();
     });
     _('.hideBar').addEventListener("click", function (e) {
-        _('.cookieUrl').className += " hidden";
+        _('.tool-add-cookie-url').className += " hidden";
     });
 
     function delClick(o) {
         var url = o.getAttribute("data-con");
-        deleteCookieLink(url);
+        deleteLocalLink(url);
         updateFavorLinks();
     }
 
